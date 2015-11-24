@@ -1,0 +1,148 @@
+AppBundle\Entity\Course:
+    type: entity
+    table: courses
+    repositoryClass: AppBundle\Repository\CourseRepository
+    id:
+        id:
+            type: integer
+            id: true
+            nullable: false
+            generator:
+                strategy: AUTO
+    fields:
+        skillId:
+            type: integer
+            nullable: false
+            column: skill_id
+        title:
+            type: string
+            length: '50'
+            nullable: false
+        subtitle:
+            type: string
+            length: '100'
+            nullable: true
+        prerequisites:
+            type: text
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        language:
+            type: string
+            length: '20'
+            nullable: true
+        totalLikes:
+            type: integer
+            length: '10'
+            nullable: true
+        hashedId:
+            type: string
+            length: '20'
+            nullable: true
+        price:
+            type: float
+            precision: '10'
+            scale: '2'
+            nullable: false
+        status:
+            type: smallint
+            nullable: false
+        isFree:
+            type: boolean
+            nullable: true
+            column: is_free
+        dateCreated:
+            type: datetime
+            nullable: true
+            column: date_created
+        dateUpdated:
+            type: datetime
+            nullable: true
+            column: date_updated
+        dateApproved:
+            type: datetime
+            nullable: true
+            column: date_approved
+    oneToOne:
+        coverMedia:
+            targetEntity: AppBundle\Entity\Media
+            cascade: ["all"]
+            orphanRemoval: ["true"]
+            joinColumn:
+                name: cover_media_id
+                referencedColumnName: id
+                nullable: true
+                onDelete:  "SET NULL"
+        referenceFilesMedia:
+            targetEntity: AppBundle\Entity\Media
+            cascade: ["all"]
+            orphanRemoval: ["true"]
+            joinColumn:
+                name: reference_media_id
+                referencedColumnName: id
+                nullable: true
+                onDelete:  "SET NULL"
+    oneToMany:
+        categories:
+            targetEntity: AppBundle\Entity\CourseCategory
+            mappedBy: course
+            cascade: ["persist"]
+        chapters:
+            targetEntity: AppBundle\Entity\Chapter
+            mappedBy: course
+            cascade: ["persist", "remove"]
+        comments:
+            targetEntity: AppBundle\Entity\Comment
+            mappedBy: course
+            cascade: ["persist", "remove"]
+        likes:
+            targetEntity: AppBundle\Entity\CourseLike
+            mappedBy: course
+            cascade: ["persist", "remove"]
+        subscriptions:
+            targetEntity: AppBundle\Entity\Subscription
+            mappedBy: course
+            cascade: ["persist", "remove"]
+        tags:
+            targetEntity: AppBundle\Entity\CourseTag
+            mappedBy: course
+            cascade: ["persist"]
+        transactions:
+            targetEntity: AppBundle\Entity\Transaction
+            mappedBy: course
+            cascade: ["persist", "remove"]
+    manyToOne:
+        user:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: courses
+            cascade: ["persist"]
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                nullable: false
+        creator:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: coursesCreator
+            cascade: ["persist"]
+            joinColumn:
+                name: created_by
+                referencedColumnName: id
+                nullable: false
+        updater:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: coursesUpdater
+            cascade: ["persist"]
+            joinColumn:
+                name: updated_by
+                referencedColumnName: id
+                nullable: true
+        approver:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: coursesApprover
+            cascade: ["persist"]
+            joinColumn:
+                name: approved_by
+                referencedColumnName: id
+                nullable: true
+    lifecycleCallbacks: {  }

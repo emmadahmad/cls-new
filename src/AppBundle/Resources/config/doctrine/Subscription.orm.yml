@@ -1,0 +1,76 @@
+AppBundle\Entity\Subscription:
+    type: entity
+    table: subscriptions
+    repositoryClass: AppBundle\Repository\SubscriptionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            nullable: false
+            generator:
+                strategy: AUTO
+    fields:
+        status:
+            type: smallint
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+
+        approvedAt:
+            type: datetime
+            nullable: true
+            column: approved_at
+    oneToMany:
+        transactions:
+            targetEntity: AppBundle\Entity\Transaction
+            mappedBy: subscription
+            cascade: ["persist", "remove"]
+    manyToOne:
+        course:
+            targetEntity: AppBundle\Entity\Course
+            inversedBy: subscriptions
+            cascade: ["persist"]
+            joinColumn:
+                name: course_id
+                referencedColumnName: id
+                nullable: false
+        user:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: subscriptions
+            cascade: ["persist"]
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                nullable: false
+        creator:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: subscriptionsCreator
+            cascade: ["persist"]
+            joinColumn:
+                name: created_by
+                referencedColumnName: id
+                nullable: false
+        updater:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: subscriptionsUpdater
+            cascade: ["persist"]
+            joinColumn:
+                name: updated_by
+                referencedColumnName: id
+                nullable: true
+        approver:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: subscriptionsApprover
+            cascade: ["persist"]
+            joinColumn:
+                name: approved_by
+                referencedColumnName: id
+                nullable: true
+    lifecycleCallbacks: {  }

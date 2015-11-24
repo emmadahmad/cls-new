@@ -1,0 +1,78 @@
+AppBundle\Entity\Category:
+    type: entity
+    table: categories
+    repositoryClass: AppBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            nullable: false
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '50'
+            nullable: false
+        description:
+            type: text
+            nullable: true
+        status:
+            type: smallint
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+        approvedAt:
+            type: datetime
+            nullable: true
+            column: approved_at
+    oneToMany:
+        categories:
+            targetEntity: AppBundle\Entity\Category
+            mappedBy: parent
+            cascade: ["persist", "remove"]
+            orphanRemoval: ["true"]
+        courses:
+            targetEntity: AppBundle\Entity\CourseCategory
+            mappedBy: category
+            cascade: ["persist", "remove"]
+    manyToOne:
+        parent:
+            targetEntity: AppBundle\Entity\Category
+            inversedBy: categories
+            joinColumn:
+                name: parent_id
+                referencedColumnName: id
+                onDelete:  "SET NULL"
+                nullable: true
+        creator:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: categoriesCreator
+            cascade: ["persist"]
+            joinColumn:
+                name: created_by
+                referencedColumnName: id
+                nullable: false
+        updater:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: categoriesUpdater
+            cascade: ["persist"]
+            joinColumn:
+                name: updated_by
+                referencedColumnName: id
+                nullable: true
+        approver:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: categoriesApprover
+            cascade: ["persist"]
+            joinColumn:
+                name: approved_by
+                referencedColumnName: id
+                nullable: true
+    lifecycleCallbacks: {  }

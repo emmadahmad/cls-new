@@ -1,0 +1,83 @@
+AppBundle\Entity\Lesson:
+    type: entity
+    table: lessons
+    repositoryClass: AppBundle\Repository\LessonRepository
+    id:
+        id:
+            type: integer
+            id: true
+            nullable: false
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '50'
+            nullable: false
+        description:
+            type: text
+            nullable: true
+        status:
+            type: smallint
+            nullable: false
+        isFree:
+            type: boolean
+            nullable: false
+            column: is_free
+        dateCreated:
+            type: datetime
+            nullable: true
+            column: date_created
+        dateUpdated:
+            type: datetime
+            nullable: true
+            column: date_updated
+        dateApproved:
+            type: datetime
+            nullable: true
+            column: date_approved
+    oneToOne:
+        videoMedia:
+            targetEntity: AppBundle\Entity\Media
+            cascade: ["all"]
+            orphanRemoval: ["true"]
+            joinColumn:
+                name: video_media_id
+                referencedColumnName: id
+                nullable: true
+                onDelete:  "SET NULL"
+
+    manyToOne:
+        chapter:
+            targetEntity: AppBundle\Entity\Chapter
+            inversedBy: lessons
+            cascade: ["persist"]
+            joinColumn:
+                name: chapter_id
+                referencedColumnName: id
+                nullable: false
+        creator:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: lessonsCreator
+            cascade: ["persist"]
+            joinColumn:
+                name: created_by
+                referencedColumnName: id
+                nullable: false
+        updater:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: lessonsUpdater
+            cascade: ["persist"]
+            joinColumn:
+                name: updated_by
+                referencedColumnName: id
+                nullable: true
+        approver:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: lessonsApprover
+            cascade: ["persist"]
+            joinColumn:
+                name: approved_by
+                referencedColumnName: id
+                nullable: true
+    lifecycleCallbacks: {  }

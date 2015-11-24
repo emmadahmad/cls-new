@@ -1,0 +1,68 @@
+AppBundle\Entity\Tag:
+    type: entity
+    table: tags
+    repositoryClass: AppBundle\Repository\TagRepository
+    id:
+        id:
+            type: integer
+            id: true
+            nullable: false
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '20'
+            nullable: false
+        description:
+            type: string
+            length: '255'
+            nullable: true
+        status:
+            type: smallint
+            nullable: false
+        createdAt:
+            type: datetime
+            nullable: true
+            column: created_at
+
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+
+        approvedAt:
+            type: datetime
+            nullable: true
+            column: approved_at
+    oneToMany:
+        tags:
+            targetEntity: AppBundle\Entity\CourseTag
+            mappedBy: tag
+            cascade: ["persist"]
+    manyToOne:
+        creator:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: tagsCreator
+            cascade: ["persist"]
+            joinColumn:
+                name: created_by
+                referencedColumnName: id
+                nullable: false
+        updater:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: tagsUpdater
+            cascade: ["persist"]
+            joinColumn:
+                name: updated_by
+                referencedColumnName: id
+                nullable: true
+        approver:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: tagsApprover
+            cascade: ["persist"]
+            joinColumn:
+                name: approved_by
+                referencedColumnName: id
+                nullable: true
+    lifecycleCallbacks: {  }

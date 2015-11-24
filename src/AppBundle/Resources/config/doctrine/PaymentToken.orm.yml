@@ -1,0 +1,5 @@
+AppBundle\Entity\PaymentToken:
+    type: entity
+    table: payment_token
+    repositoryClass: AppBundle\Repository\PaymentTokenRepository
+    lifecycleCallbacks: {  }

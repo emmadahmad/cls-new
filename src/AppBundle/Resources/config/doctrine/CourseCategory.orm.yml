@@ -1,0 +1,69 @@
+AppBundle\Entity\CourseCategory:
+    type: entity
+    table: course_categories
+    repositoryClass: AppBundle\Repository\CourseCategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            nullable: false
+            generator:
+                strategy: AUTO
+    fields:
+        status:
+            type: smallint
+            nullable: false
+        dateCreated:
+            type: datetime
+            nullable: true
+            column: date_created
+        dateUpdated:
+            type: datetime
+            nullable: true
+            column: date_updated
+        dateApproved:
+            type: datetime
+            nullable: true
+            column: date_approved
+    manyToOne:
+        category:
+            targetEntity: AppBundle\Entity\Category
+            inversedBy: courses
+            cascade: ["persist", "remove"]
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+                nullable: false
+        course:
+            targetEntity: AppBundle\Entity\Course
+            inversedBy: categories
+            cascade: ["persist", "remove"]
+            joinColumn:
+                name: course_id
+                referencedColumnName: id
+                nullable: false
+        creator:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: courseCategoriesCreator
+            cascade: ["persist", "remove"]
+            joinColumn:
+                name: created_by
+                referencedColumnName: id
+                nullable: false
+        updater:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: courseCategoriesUpdater
+            cascade: ["persist", "remove"]
+            joinColumn:
+                name: updated_by
+                referencedColumnName: id
+                nullable: true
+        approver:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: courseCategoriesApprover
+            cascade: ["persist", "remove"]
+            joinColumn:
+                name: approved_by
+                referencedColumnName: id
+                nullable: true
+    lifecycleCallbacks: {  }

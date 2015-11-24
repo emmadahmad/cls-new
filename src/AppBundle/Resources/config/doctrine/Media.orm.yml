@@ -1,0 +1,45 @@
+AppBundle\Entity\Media:
+    type: entity
+    table: media
+    repositoryClass: AppBundle\Repository\MediaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        mediaKey:
+            type: string
+            length: 255
+            column: media_key
+        path:
+            type: string
+            length: '500'
+        adapter:
+            type: string
+            length: 255
+        orignalName:
+            type: string
+            length: 255
+            column: orignal_name
+        hashedId:
+            type: string
+            length: 255
+            column: hashed_id
+            nullable: true
+        duration:
+            type: string
+            length: 20
+            nullable: true
+        fileSize:
+            type: string
+            length: 255
+            column: file_size
+        response:
+            type: json_array
+            nullable: true
+    lifecycleCallbacks: {  }

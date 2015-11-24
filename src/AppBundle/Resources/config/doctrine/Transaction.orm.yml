@@ -1,0 +1,88 @@
+AppBundle\Entity\Transaction:
+    type: entity
+    table: transactions
+    repositoryClass: AppBundle\Repository\TransactionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            nullable: false
+            generator:
+                strategy: AUTO
+    fields:
+        transactionId:
+            type: string
+            length: '50'
+            nullable: false
+            column: transaction_id
+        type:
+            type: integer
+            length: '10'
+        balance:
+            type: float
+            nullable: true
+            precision: '10'
+            scale: '2'
+        amount:
+            type: float
+            precision: '10'
+            scale: '2'
+        creditDebit:
+            type: float
+            precision: '10'
+            scale: '2'
+            column: credit_debit
+        status:
+            type: smallint
+        commissionPercentage:
+            type: float
+            nullable: true
+            precision: '10'
+            scale: '2'
+            column: commission_percentage
+        commissionAmount:
+            type: float
+            nullable: true
+            precision: '10'
+            scale: '2'
+            column: commission_amount
+        dateCreated:
+            type: datetime
+            column: date_created
+        dateUpdated:
+            type: datetime
+            column: date_updated
+    manyToOne:
+        course:
+            targetEntity: AppBundle\Entity\Course
+            inversedBy: transactions
+            cascade: ["persist"]
+            joinColumn:
+                name: course_id
+                referencedColumnName: id
+                nullable: true
+        subscription:
+            targetEntity: AppBundle\Entity\Subscription
+            inversedBy: transactions
+            cascade: ["persist"]
+            joinColumn:
+                name: subscription_id
+                referencedColumnName: id
+                nullable: true
+        user:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: transactions
+            cascade: ["persist"]
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                nullable: false
+        creator:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: transactionsCreator
+            cascade: ["persist"]
+            joinColumn:
+                name: created_by
+                referencedColumnName: id
+                nullable: false
+    lifecycleCallbacks: {  }

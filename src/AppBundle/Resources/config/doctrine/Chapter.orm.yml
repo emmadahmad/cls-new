@@ -1,0 +1,76 @@
+AppBundle\Entity\Chapter:
+    type: entity
+    table: chapters
+    repositoryClass: AppBundle\Repository\ChapterRepository
+    id:
+        id:
+            type: integer
+            id: true
+            nullable: false
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '50'
+        description:
+            type: text
+            nullable: true
+        status:
+            type: smallint
+        isFree:
+            type: boolean
+            column: is_free
+        dateCreated:
+            type: datetime
+            nullable: true
+            column: date_created
+        dateUpdated:
+            type: datetime
+            nullable: true
+            column: date_updated
+        dateApproved:
+            type: datetime
+            nullable: true
+            column: date_approved
+    oneToMany:
+        lessons:
+            targetEntity: AppBundle\Entity\Lesson
+            mappedBy: chapter
+            cascade: ["persist", "remove"]
+            orphanRemoval: ["true"]
+
+    manyToOne:
+        course:
+            targetEntity: AppBundle\Entity\Course
+            inversedBy: chapters
+            cascade: ["persist"]
+            joinColumn:
+                name: course_id
+                referencedColumnName: id
+                nullable: false
+        creator:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: chaptersCreator
+            cascade: ["persist"]
+            joinColumn:
+                name: created_by
+                referencedColumnName: id
+                nullable: false
+        updater:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: chaptersUpdater
+            cascade: ["persist"]
+            joinColumn:
+                name: updated_by
+                referencedColumnName: id
+                nullable: true
+        approver:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: chaptersApprover
+            cascade: ["persist"]
+            joinColumn:
+                name: approved_by
+                referencedColumnName: id
+                nullable: true
+    lifecycleCallbacks: {  }
