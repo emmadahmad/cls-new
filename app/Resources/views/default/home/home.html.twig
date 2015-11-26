@@ -1,1 +1,27 @@
 {% extends '::base.html.twig' %}
+
+{% block main_title %}
+    All Courses
+{% endblock main_title %}
+
+{% block page_title %} Home {% endblock page_title %}
+
+{% block main_banner %}
+    {{ include(':partials/banners:banner_home.html.twig', { }) }}
+{% endblock main_banner %}
+
+{% block sidebar_2cols_left %}
+    {{ include(':partials/menus:menu_sidebar.html.twig', { }) }}
+{% endblock sidebar_2cols_left %}
+
+{% block main_content_2cols_left %}
+    <div class="categoryBtns clearfix">
+        {#{{ include(':partials/elements:switcher_skills.html.twig', { 'data': 'all', 'skillId' : skill_id, 'dataType' : 'category'}) }}#}
+        {#{{ include(':partials/elements:sorter.html.twig', { 'sorting' : sorting }) }}#}
+    </div><!-- class="categoryBtns" END -->
+
+    <!-- START COURSE LIST -->
+    {#{{ include('BeusoftHomeBundle:Partials:course_listing.html.twig', {'courses': courses}) }}#}
+    <!-- END COURSE LIST -->
+    {#{{ include('BeusoftThemesBundle:Partials:content_elements/pagination.html.twig', { 'data' : courses }) }}#}
+{% endblock main_content_2cols_left %}

@@ -1,12 +1,5 @@
 <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}?v=3"/>
 
-{% stylesheets filter='cssrewrite' output='css/app.css' filter='uglifycss'
-'@StoreServicesBundle/Resources/public/css/style.css'
-'@StoreServicesBundle/Resources/public/css/developer.css'
-'@StoreServicesBundle/Resources/public/css/jquery.nailthumb.1.1.min.css' %}
-<link href="{{ asset_url }}" type="text/css" rel="stylesheet"/>
-{% endstylesheets %}
-
 {% stylesheets output='css/app.css' filter='cssrewrite'
 '@AppBundle/Resources/public/css/styles.css'
 '@AppBundle/Resources/public/css/developer.css'

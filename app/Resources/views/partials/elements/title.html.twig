@@ -1,0 +1,9 @@
+{% if _title_type == 'main' %}
+    <h3 class="formPageHead fancyBorder">
+        <span>{{ _content|raw }}</span>
+    </h3>
+{% elseif _title_type == 'fancy' %}
+    <div class="mainTitle fancy">
+        <h2>{{ _content|raw }}</h2>
+    </div>
+{% endif %}

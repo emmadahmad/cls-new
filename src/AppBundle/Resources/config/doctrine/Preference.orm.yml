@@ -38,20 +38,12 @@ AppBundle\Entity\Preference:
             type: datetime
             nullable: true
             column: updated_at
-    manyToOne:
-        parent:
-            targetEntity: AppBundle\Entity\Preference
-            inversedBy: child
-            cascade: ["persist"]
-            joinColumn:
-                name: parent_id
-                referencedColumnName: id
-                onDelete:  "SET NULL"
-                nullable: false
     oneToMany:
         child:
-            targetEntity: AppBundle\Entity\Preference
-            mappedBy: parent
-            cascade: ["persist", "remove"]
-            orphanRemoval: ["true"]
+           targetEntity: AppBundle\Entity\Preference
+           mappedBy: parent
+    manyToOne:
+        parent:
+          targetEntity: AppBundle\Entity\Preference
+          inversedBy: child
     lifecycleCallbacks: {  }

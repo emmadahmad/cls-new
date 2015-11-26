@@ -1,0 +1,11 @@
+cls_categories_category:
+    resource: "@AppBundle/Resources/config/routing/admin_category_routing.yml"
+    prefix:   /admin/category
+
+cls_categories_homepage:
+    path:     /category/{category_id}
+    defaults: { _controller: BeusoftCategoriesBundle:Default:index }
+
+cls_categories_homepage_skills:
+    path:     /category/{category_id}/skill/{skill_id}
+    defaults: { _controller: BeusoftCategoriesBundle:Default:index }

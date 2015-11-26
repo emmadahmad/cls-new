@@ -1,0 +1,19 @@
+{% set _data = data %}
+{% set _dataType = dataType %}
+{% set _route = _dataType|getRoute(_data,4) %}
+<div class="category">
+    <div class="btn-group">
+        <a href="{{ _dataType|getRoute(_data,4) }}" type="button" class="btn btn-default {{ skillId|activeSkill(4) }}">
+            All
+        </a>
+        <a href="{{ _dataType|getRoute(_data,1) }}" type="button" class="btn btn-default {{ skillId|activeSkill(1) }}">
+            <span class="btn-beginner"></span>Beginners
+        </a>
+        <a href="{{ _dataType|getRoute(_data,2) }}" type="button" class="btn btn-default {{ skillId|activeSkill(2) }}">
+            <span class="btn-inter"></span>Intermediate
+        </a>
+        <a href="{{ _dataType|getRoute(_data,3) }}" type="button" class="btn btn-default {{ skillId|activeSkill(3) }}">
+            <span class="btn-advance"></span>Advanced
+        </a>
+    </div>
+</div>

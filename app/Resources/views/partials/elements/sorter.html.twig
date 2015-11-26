@@ -1,0 +1,21 @@
+{% set _currentSorting = sorting %}
+{% set _route = app.request.attributes.get('_route') %}
+{% set _params = app.request.attributes.get('_route_params')  %}
+<div class="sortBy">
+    <span class="sortText">Sort By:</span>
+    <div class="btn-group">
+        <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+            {{ _currentSorting|sortingName }} <span class="caret"></span>
+        </button>
+        <a class="ascending_descending" href="{{ _currentSorting|sortingPath(_route,_params) }}">
+            <span class="glyphicon {{ _currentSorting|sortingIcon }}" aria-hidden="true"></span>
+        </a>
+        <ul class="dropdown-menu" role="menu">
+            {% if _currentSorting == 'name_asc' or _currentSorting == 'name_dsc' %}
+                <li><a href="{{ _currentSorting|sortingPath(_route,_params,'date') }}">Sort by Date</a></li>
+            {% elseif _currentSorting == 'date_dsc' or  _currentSorting == 'date_asc' %}
+                <li><a href="{{ _currentSorting|sortingPath(_route,_params,'name') }}">Sort by Name</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
