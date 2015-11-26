@@ -25,12 +25,10 @@ AppBundle\Entity\Tag:
             type: datetime
             nullable: true
             column: created_at
-
         updatedAt:
             type: datetime
             nullable: true
             column: updated_at
-
         approvedAt:
             type: datetime
             nullable: true
@@ -40,29 +38,4 @@ AppBundle\Entity\Tag:
             targetEntity: AppBundle\Entity\CourseTag
             mappedBy: tag
             cascade: ["persist"]
-    manyToOne:
-        creator:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: tagsCreator
-            cascade: ["persist"]
-            joinColumn:
-                name: created_by
-                referencedColumnName: id
-                nullable: false
-        updater:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: tagsUpdater
-            cascade: ["persist"]
-            joinColumn:
-                name: updated_by
-                referencedColumnName: id
-                nullable: true
-        approver:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: tagsApprover
-            cascade: ["persist"]
-            joinColumn:
-                name: approved_by
-                referencedColumnName: id
-                nullable: true
     lifecycleCallbacks: {  }

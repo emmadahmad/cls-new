@@ -1,0 +1,146 @@
+.addChapterPopup {
+
+  background-color: lighten($dark,100%);
+
+  width: 100%;
+
+  max-width: 480px;
+
+  min-height: 192px;
+
+  margin-left: -240px;
+
+  margin-top: -95px;
+
+  border: 1px solid #ec9f0f;
+
+  padding: 15px;
+
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  @include border-radius(10px);
+
+  @include box-shadow(1px 3px 3px rgba(0, 0, 0, 0.06));
+
+  @include pie;
+
+  @media #{$break-small} {
+
+    max-width: 345px;
+
+    margin-left: -173px;
+
+  }
+
+  @media #{$break-little} {
+
+    max-width: 300px;
+
+    margin-left: -150px;
+
+  }
+
+  h4 {
+
+    font-size: 16px;
+
+    color: #ec9f0f;
+
+    margin: 0 0 15px;
+
+  }
+
+  a {
+
+    font-size: 12px;
+
+    color: #ec9f0f;
+
+    font-weight: bold;
+
+    text-decoration: underline;
+
+    margin-right: 12px;
+
+    &:hover {
+
+      text-decoration: none;
+
+    }
+
+  }
+
+  .mainForm {
+
+    width: inherit;
+
+    .form-group {
+
+      margin-bottom: 20px;
+
+      &:last-child {
+
+        margin-bottom: 0;
+      }
+
+      .form-control {
+
+        border-color: lighten($dark,74%);
+        
+      }
+
+      label {
+
+        font-size: 13px;
+
+        color: lighten($dark,40%);
+
+      }
+
+      .btn-saveChapter {
+
+        padding: 7px 14px;
+
+        font-size: 13px;
+
+        font-weight: bold;
+
+        margin: 0;
+
+        text-decoration: none;
+
+      }
+
+    }
+
+  }
+
+  .mainForm {
+
+    .form-group {
+
+      .input-group {
+
+        .btnUpload {
+
+          padding: 1px 48px 1px 5px;
+
+          @media #{$break-little} {
+
+            padding: 1px 5px;
+
+          }
+          
+        }
+
+      }
+
+    }
+
+  }
+
+}

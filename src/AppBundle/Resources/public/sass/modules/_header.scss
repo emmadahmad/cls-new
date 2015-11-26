@@ -1,0 +1,55 @@
+.header {
+
+	background-color: #fcfbf7;
+
+	min-height: 71px;
+
+	position: relative;
+
+	z-index: 10000;
+
+	border-bottom: 1px solid lighten($dark, 94%);
+	
+	@media #{$break-xlarge} {
+
+		.col-sm-12 {
+
+			width: 33.3333%;
+
+		}
+
+	}
+
+	@media #{$break-large} {
+
+		.col-sm-12:nth-child(3) {
+
+			width: 210px;
+
+			position: absolute;
+
+			top: 0;
+
+			right: 0;
+
+		}
+
+	}
+
+	@media #{$break-medium} {
+
+		.col-sm-12:nth-child(3) {
+
+			width: 210px;
+
+			position: absolute;
+
+			top: 0;
+
+			right: 0;
+
+		}
+
+	}
+	
+}

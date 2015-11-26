@@ -1,0 +1,53 @@
+.courseDevRow {
+
+  min-height: 350px;
+
+  background-color: lighten($dark,97%);
+
+  border-top: 1px solid lighten($dark,87%);
+
+  margin: 0 -20px;
+
+  padding: 17px 20px 0;
+
+  @media #{$break-xlarge} {
+
+    padding-bottom: 5%;
+
+  }
+
+  @media #{$break-large} {
+
+    padding-bottom: 5%;
+
+  }
+
+  @media #{$break-medium} {
+
+    padding-bottom: 5%;
+
+  }
+
+  @media #{$break-small} {
+
+    padding-bottom: 5%;
+
+  }
+
+  @media #{$break-little} {
+
+    padding-bottom: 5%;
+
+  }
+
+  h3 {
+
+    color: #000;
+
+    font-size: 30px;
+
+    margin: 10px 0 28px;
+
+  }
+  
+}

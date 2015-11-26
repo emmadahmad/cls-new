@@ -1,3 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+cls_home:
+    resource: "@AppBundle/Resources/config/routing/home_routing.yml"
+    prefix:   /

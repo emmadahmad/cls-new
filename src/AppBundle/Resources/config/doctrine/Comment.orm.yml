@@ -13,7 +13,7 @@ AppBundle\Entity\Comment:
         rating:
             type: integer
             nullable: false
-        comments:
+        comment:
             type: string
             length: '255'
             nullable: false
@@ -63,28 +63,4 @@ AppBundle\Entity\Comment:
                 name: user_id
                 referencedColumnName: id
                 nullable: false
-        creator:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: commentsCreator
-            cascade: ["persist"]
-            joinColumn:
-                name: created_by
-                referencedColumnName: id
-                nullable: false
-        updater:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: commentsUpdater
-            cascade: ["persist"]
-            joinColumn:
-                name: updated_by
-                referencedColumnName: id
-                nullable: true
-        approver:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: commentsApprover
-            cascade: ["persist"]
-            joinColumn:
-                name: approved_by
-                referencedColumnName: id
-                nullable: true
     lifecycleCallbacks: {  }

@@ -1,0 +1,281 @@
+.chapterHolder {
+
+	@media #{$break-xlarge} {
+
+		margin-bottom: 30px;
+
+		overflow: hidden;
+
+	}
+
+	@media #{$break-large} {
+
+		margin-bottom: 30px;
+
+	}
+
+	@media #{$break-medium} {
+
+		margin-bottom: 30px;
+
+	}
+
+	@media #{$break-small} {
+
+		margin-bottom: 30px;
+
+	}
+
+	@media #{$break-little} {
+
+		margin-bottom: 30px;
+
+	}
+
+	.expandCollapseBtn {
+
+		padding: 10px 15px;
+
+		border: 1px solid lighten($dark,82%);
+
+		border-bottom: 0;
+
+		a {
+
+			font-size: 16px;
+
+			font-weight: bold;
+
+			color: lighten($dark,57%);
+
+			border-right: 1px solid lighten($dark,87%);
+
+			margin-right: 15px;
+
+			padding-right: 15px;
+
+			outline: none;
+
+			&:last-child {
+
+				border-right: 0;
+
+				margin-right: 0;
+
+				padding-right: 0;
+
+			}
+
+			&:hover, &:focus, &.active_tab {
+
+				color: lighten($orange,0%);
+
+				text-decoration: none;
+
+			}
+
+		}
+
+	}
+
+	.panelGroupParent {
+
+		padding: 20px 15px;
+
+		border: 1px solid lighten($dark,82%);
+
+    	@include box-shadow(0 3px 3px rgba(0, 0, 0, 0.06));
+
+    	@include pie;
+
+    	.panel-group {
+
+    		margin: 0;
+
+    		padding: 0;
+
+    		.panel {
+
+    			list-style: none;
+
+    			border: none;
+
+    			margin-top: 20px;
+
+    			@include border-radius(0);
+
+    			@include box-shadow(none);
+
+    			@include pie;
+
+    			&:first-child {
+
+    				margin-top: 0;
+
+    			}
+
+    			.accordion_box{
+
+    				@include clearfix;
+
+	    			a{
+
+	    				min-height: 25px;
+
+	    				display: block;
+
+	    				padding: 0 0 2px 0;
+
+	    				float: left;
+
+	    				font-size: 14px;
+
+	    				color: lighten($dark,8%);
+
+	    				outline: none;
+
+	    				@include clearfix;
+
+	    				&:hover, &:focus {
+
+	    					text-decoration: none;
+
+	    				}
+
+	    				& > span{
+
+							display: block;
+
+							height: 25px;
+
+							float: left;
+
+							@include clearfix;
+
+							&.glyphicon{
+
+								width: 25px;
+
+								padding: 6px 0 0 1px;
+
+								font-size: 12px;
+
+								color: $orange;
+
+								text-align: center;
+
+								border: 1px solid $orange;
+
+								@include border-radius(13px);
+
+								@include pie;
+
+								&.glyphicon-chevron-down{
+
+									padding: 7px 0 0 1px !important;
+
+								}
+
+		    				}
+
+		    				&.text{
+	    						
+	    						line-height: 25px;
+
+	    						padding: 2px 0 0 5px;
+
+		    				}
+
+	    				}
+
+	    			}
+
+	    			.chapterPostTime {
+
+	    				font-size: 12px;
+
+	    				color: lighten($dark,77%);
+
+	    				float: right;
+
+	    				padding: 7px 0 0 0;
+
+						@media #{$break-little} {
+
+							float: none;
+
+							text-align: right;
+
+						}
+
+	    			}
+
+    			}
+
+    		}
+
+    		.panel-collapse {
+
+    			margin: 0;
+
+    			padding: 0;
+
+    			li {
+
+	    			list-style: none;
+
+	    			border: none;
+
+	    			@include border-radius(0);
+
+	    			@include box-shadow(none);
+
+	    			@include pie;
+
+	    			margin-top: 20px;
+
+	    			position: relative;
+
+	    			.chapterListText {
+
+	    				width: 80%;
+
+	    				background: url(#{$imagesPath}ui/lock_icon.png) 8px 4px no-repeat;
+
+	    				padding-left: 28px;
+
+		    			a {
+
+	    					font-size: 12px;
+
+	    					color: lighten($dark,33%);
+
+	    				}
+	    				   				
+	    			}
+
+	    			.minSec {
+
+	    				padding: 3px 0 0 0;
+
+	    				font-size: 12px;
+
+	    				color: lighten($dark,77%);
+
+	    				position: absolute;
+
+	    				top: 0;
+
+	    				right: 0;
+
+	    			}
+
+    			}
+
+    		}
+
+    	}
+
+	}
+
+}

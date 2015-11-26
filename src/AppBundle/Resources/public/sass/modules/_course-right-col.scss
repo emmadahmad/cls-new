@@ -1,0 +1,75 @@
+.rightColHolder {
+
+	@media #{$break-xlarge} {
+
+		width: 100%;
+
+	}
+
+	.courseRightCol {
+
+		margin-left: 17px;
+
+		@media #{$break-xlarge} {
+
+			margin-left: 0;
+
+			.input-group {
+
+				width: 100%;
+
+			}
+
+		}
+
+		@media #{$break-large} {
+
+			margin-left: 0;
+
+			.input-group {
+
+				width: 100%;
+
+			}
+
+		}
+
+		@media #{$break-medium} {
+
+			margin-left: 0;
+
+			.input-group {
+
+				width: 100%;
+
+			}
+
+		}
+
+		@media #{$break-small} {
+
+			margin-left: 0;
+
+			.input-group {
+
+				width: 100%;
+
+			}
+
+		}
+
+		@media #{$break-little} {
+
+			margin-left: 0;
+
+			.input-group {
+
+				width: 100%;
+
+			}
+
+		}
+		
+	}
+
+}

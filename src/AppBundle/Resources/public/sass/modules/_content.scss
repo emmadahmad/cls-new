@@ -1,0 +1,63 @@
+.content {
+
+	background-color: lighten($dark,100%);
+
+	padding: 40px 20px 25px;
+
+	@include box-shadow (25px 0px 25px -25px rgba(0,0,0,0.2), -25px 0px 25px -25px rgba(0,0,0,0.2));
+
+	@include pie;
+
+	@media #{$break-little} {
+
+		padding: 40px 5px 25px;
+
+	}
+
+	.mainTitle {
+
+		margin: 0 0 28px 0;
+
+	}
+
+	.fancy {
+
+		position: relative;
+
+		&:after {
+
+			content: "";
+
+			display: block;
+
+			width: 100%;
+
+			border-bottom: 1px solid lighten($dark,85%);
+
+			position: absolute;
+
+			top: 57%;
+
+			z-index: 1;
+
+		}
+
+	  	h2 {
+
+	  		display: inline-block;
+
+			padding: 0 25px 0 0;
+
+			margin: 0;
+
+			background: lighten($dark, 100%);
+
+			position: relative;
+
+			z-index: 2;
+
+		}
+
+	}
+
+}

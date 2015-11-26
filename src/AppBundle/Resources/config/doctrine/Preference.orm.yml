@@ -39,33 +39,19 @@ AppBundle\Entity\Preference:
             nullable: true
             column: updated_at
     manyToOne:
-        preferenceType:
-            targetEntity: AppBundle\Entity\PreferenceType
-            inversedBy: preferences
+        parent:
+            targetEntity: AppBundle\Entity\Preference
+            inversedBy: child
             cascade: ["persist"]
             joinColumn:
-                name: preference_type_id
+                name: parent_id
                 referencedColumnName: id
+                onDelete:  "SET NULL"
                 nullable: false
-        creator:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: preferencesCreator
-            cascade: ["persist"]
-            joinColumn:
-                name: created_by
-                referencedColumnName: id
-                nullable: false
-        updater:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: preferencesUpdater
-            cascade: ["persist"]
-            joinColumn:
-                name: updated_by
-                referencedColumnName: id
-                nullable: true
     oneToMany:
-        transactions:
-            targetEntity: AppBundle\Entity\Transaction
-            mappedBy: transactionType
+        child:
+            targetEntity: AppBundle\Entity\Preference
+            mappedBy: parent
             cascade: ["persist", "remove"]
+            orphanRemoval: ["true"]
     lifecycleCallbacks: {  }

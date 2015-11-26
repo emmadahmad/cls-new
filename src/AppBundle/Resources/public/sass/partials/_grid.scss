@@ -1,0 +1,15 @@
+.container{
+
+	@media #{$break-xxlarge} {
+		
+		width: 98%;
+
+	}
+
+	@media #{$break-xxxlarge} {
+		
+		width: 1024px;
+
+	}
+
+}

@@ -1,0 +1,231 @@
+.homeSlider {
+
+	.carousel-inner {
+
+		.item {
+
+			img {
+
+				width: 100%;
+				
+			}
+
+			.carousel-caption {
+
+				top: 13%;
+
+				left: 5%;
+
+				text-align: left;
+
+				text-shadow: none;
+
+				@media #{$break-xlarge} {
+
+					top: 7%;
+
+					padding: 0;
+
+				}
+
+				@media #{$break-large} {
+
+					top: 0;
+
+					padding: 0;
+
+				}
+
+				@media #{$break-medium} {
+
+					top: 0;
+
+					padding: 0;
+
+				}
+
+				@media #{$break-small} {
+
+					top: 0;
+
+					padding: 0;
+
+				}
+
+				@media #{$break-little} {
+
+					top: 0;
+
+					padding: 0;
+
+				}
+
+				h3 {
+
+					font-family: "Calibri";
+
+					font-size:46px;
+
+					font-weight: bold;
+
+					color: lighten($dark,0%);
+
+					margin-bottom: 30px;
+
+					@media #{$break-xlarge} {
+
+						font-size: 280%;
+
+					}
+
+					@media #{$break-large} {
+
+						font-size: 220%;
+
+						margin: 7% 0 5%;
+
+					}
+
+					@media #{$break-medium} {
+
+						font-size: 200%;
+
+						margin: 7% 0 3%;
+
+					}
+
+					@media #{$break-small} {
+
+						font-size: 160%;
+
+						margin: 5% 0 5%;
+
+					}
+
+					@media #{$break-little} {
+
+						font-size: 110%;
+
+						margin: 2.5% 0 5%;
+
+					}
+
+					span {
+
+						font-family: "Calibri Light";
+
+						font-size:34px;
+
+						font-weight: normal;
+
+						line-height: 20px;
+
+						display: block;
+
+						@media #{$break-xlarge} {
+
+							font-size: 80%;
+
+						}
+
+						@media #{$break-large} {
+
+							font-size: 90%;
+
+						}
+
+						@media #{$break-medium} {
+
+							font-size: 90%;
+
+						}
+
+						@media #{$break-small} {
+
+							font-size: 85%;
+
+						}
+
+						@media #{$break-little} {
+
+							font-size: 100%;
+
+						}
+
+					}
+
+				}
+
+				.btn-warning {
+
+					background-color: #ec9f0f;
+
+					font-family: arial;
+
+					font-size: 21px;
+
+					padding: 7px 29px;
+
+					@include border-radius(5px);
+
+					@include pie;
+
+					@media #{$break-xlarge} {
+
+						font-size: 120%;
+
+						padding: 2% 4%;
+
+						font-weight: bold;
+
+					}
+
+					@media #{$break-large} {
+
+						font-size: 120%;
+
+						padding: 2% 4%;
+
+						font-weight: bold;
+
+					}
+
+					@media #{$break-medium} {
+
+						font-size: 110%;
+
+						padding: 2% 4%;
+
+						font-weight: bold;
+
+					}
+
+					@media #{$break-small} {
+
+						font-size: 100%;
+
+						padding: 2% 4%;
+
+						font-weight: bold;
+
+					}
+
+					@media #{$break-little} {
+
+						font-size: 90%;
+
+						padding: 2% 4%;
+
+						font-weight: bold;
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+	
+}

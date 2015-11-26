@@ -1,0 +1,3 @@
+cls_home_homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Home:home}

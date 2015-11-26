@@ -1,13 +1,72 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+{% set lang = app.request.locale %}
+{% if lang == 'cn' %}{% set lang = 'zh-CN' %}{% endif %}
+<html lang="{{ lang }}">
+<head>
+    {% block metadata %}
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, Zoom= false">
+    {% endblock %}
+
+    <title>
+        {% block title %}
+            {% if page_title is defined %}
+                {{ page_title }}
+            {% endif %}
+        {% endblock %}
+    </title>
+
+    {# Include CSS #}
+    {{ include('::partials/assets:assets_css.html.twig') }}
+    {{ include('::partials/assets:assets_header_js.html.twig') }}
+
+    {% block stylesheets %} {% endblock %}
+</head>
+
+<body {% if app.request.locale == 'cn' %}class="base_chinese"{% endif %}>
+{% block header %}
+    <header>
+        <div class="container">
+        </div>
+    </header>
+{% endblock %}
+<div class="container">
+    <div class="row">
+        {% if block('main_content_1col') is not empty %}
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="content clearfix {{ app.request.get('_route') }}">
+                        {% if block('main_title' is not empty %}
+                            <h3 class="formPageHead fancyBorder">
+                                <span>{{ _block|raw }}</span>
+                            </h3>
+                        {% endif %}
+
+                        {% if block('fancy_title') is not empty %}
+                            <div class="mainTitle fancy">
+                                <h2>{{ _block|raw }}</h2>
+                            </div>
+                        {% endif %}
+
+                        {% block main_content %}{% endblock main_content %}
+
+                    </div><!-- class="content" END -->
+                </div><!--class="col-lg-12 col-md-12 col-sm-12" END -->
+            </div><!--class="row" END -->
+        {% endif %}
+    </div>
+
+    {% block body %}{% endblock %}
+
+    <!-- ***** START FOOTER SECTION ***** -->
+    {% block footer %}
+        {{ include('StoreTranslatorBundle:Main:footer.html.twig') }}
+    {% endblock %}
+</div>
+
+{# Include JS #}
+{{ include(':Partial:assets_js.html.twig') }}
+{% block javascript %}{% endblock %}
+</body>
 </html>

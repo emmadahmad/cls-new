@@ -1,0 +1,21 @@
+@mixin pie {
+
+	behavior: url(http://localhost/cls_html/polyfills/pie/PIE.htc);
+
+	behavior: url(http://localhost/cls_html/polyfills/pie/PIE.php);
+
+}
+
+@mixin pie-background-image($pie-background) {
+
+	-pie-background: $pie-background;
+
+}
+
+@mixin box-sizing {
+
+	behavior: url(http://localhost/cls_html/polyfills/box-sizing/boxsizing.htc);
+
+	behavior: url(http://localhost/cls_html/polyfills/box-sizing/boxsizing.php);
+	
+}

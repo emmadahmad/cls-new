@@ -1,0 +1,11 @@
+@function get-path-to-assets($imagesPath){
+
+	@return $imagesPath;
+
+}
+
+@function get-path-to-assets($fontsPath){
+
+	@return $fontsPath;
+
+}

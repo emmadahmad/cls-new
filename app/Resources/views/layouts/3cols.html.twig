@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        {% embed "BeusoftThemesBundle:Partials:head.html.twig" %} {% endembed %}
+    {% endblock %}
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        {{ include('BeusoftThemesBundle:Partials:header.html.twig', { }) }}
+        {% block body %}{% endblock %}
+        {{ include('BeusoftThemesBundle:Partials:footer.html.twig', { }) }}
+
+    </div>
+</div>
+
+{% block js_footer %}{% endblock %}
+</body>
+</html>

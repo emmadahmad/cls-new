@@ -1,0 +1,75 @@
+.formPageHead {
+
+  margin: 10px 0 28px;
+
+  font-size: 30px;
+
+  color: lighten($dark,0%);
+
+}
+
+.fancyBorder {
+
+  line-height: 0.5;
+
+  text-align: center;
+
+  span {
+
+    display: inline-block;
+
+    position: relative;
+
+    &:before, &:after {
+
+      content: "";
+
+      position: absolute;
+
+      height: 8px;
+
+      border-bottom: 1px solid #ec9f0f;
+
+      top: 0;
+
+      width: 155px;
+
+      @media #{$break-medium} {
+
+        width: 100px;
+
+      }
+
+      @media #{$break-small} {
+
+        width: 45px;
+
+      }
+
+      @media #{$break-little} {
+
+        width: auto;
+
+      }
+
+    }
+
+    &:before {
+
+      right: 100%;
+
+      margin-right: 15px;
+
+    }
+
+    &:after {
+
+      left: 100%;
+
+      margin-left: 15px;
+
+    }
+
+  }
+  
+}

@@ -1,0 +1,79 @@
+@font-face {
+
+	font-family: 'signika-regular';
+
+	src: url('#{$fontsPath}signika/signika-regular.eot'); 
+
+	src: url('#{$fontsPath}signika/signika-regular.eot?#iefix') format('embedded-opentype'), 
+	
+	url('#{$fontsPath}signika/signika-regular.woff') format('woff'), 
+	
+	url('#{$fontsPath}signika/signika-regular.ttf') format('truetype'), 
+	
+	url('#{$fontsPath}signika/signika-regular.svg#signika-regular') format('svg'); 
+	
+	font-weight: normal; 
+	
+	font-style: normal;
+
+}
+
+@font-face {
+
+	font-family: 'signika-light';
+
+	src: url('#{$fontsPath}signika/signika-light.eot'); 
+
+	src: url('#{$fontsPath}signika/signika-light.eot?#iefix') format('embedded-opentype'), 
+	
+	url('#{$fontsPath}signika/signika-light.woff') format('woff'), 
+	
+	url('#{$fontsPath}signika/signika-light.ttf') format('truetype'), 
+	
+	url('#{$fontsPath}signika/signika-light.svg#signika-light') format('svg'); 
+	
+	font-weight: normal; 
+	
+	font-style: normal;
+
+}
+
+@font-face {
+
+	font-family: 'signika-semibold';
+
+	src: url('#{$fontsPath}signika/signika-semibold.eot'); 
+
+	src: url('#{$fontsPath}signika/signika-semibold.eot?#iefix') format('embedded-opentype'), 
+	
+	url('#{$fontsPath}signika/signika-semibold.woff') format('woff'), 
+	
+	url('#{$fontsPath}signika/signika-semibold.ttf') format('truetype'), 
+	
+	url('#{$fontsPath}signika/signika-semibold.svg#signika-semibold') format('svg'); 
+	
+	font-weight: normal; 
+	
+	font-style: normal;
+
+}
+
+@font-face {
+
+	font-family: 'signika-bold';
+
+	src: url('#{$fontsPath}signika/signika-bold.eot'); 
+
+	src: url('#{$fontsPath}signika/signika-bold.eot?#iefix') format('embedded-opentype'), 
+	
+	url('#{$fontsPath}signika/signika-bold.woff') format('woff'), 
+	
+	url('#{$fontsPath}signika/signika-bold.ttf') format('truetype'), 
+	
+	url('#{$fontsPath}signika/signika-bold.svg#signika-bold') format('svg'); 
+	
+	font-weight: normal; 
+	
+	font-style: normal;
+
+}

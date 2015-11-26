@@ -1,0 +1,12 @@
+{% javascripts output="js/app_header.js" filter='uglifyjs2'
+'@AppBundle/Resources/public/js/jquery.min.js'
+%}
+<script src="{{ asset_url }}"></script>
+<script type="text/javascript">
+    {% set _locale = app.request.get('_locale') %}
+    {% if _locale == '' %}
+    {% set _locale = 'en' %}
+    {% endif %}
+    var currURLLocale = '{{ _locale }}';
+</script>
+{% endjavascripts %}

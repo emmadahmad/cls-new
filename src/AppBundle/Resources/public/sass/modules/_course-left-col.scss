@@ -1,0 +1,63 @@
+.courseForm {
+
+	width: 100%;
+
+}
+
+.leftColHolder {
+
+	@media #{$break-xlarge} {
+
+		width: 100%;
+
+	}
+
+	.courseLeftCol {
+
+		padding-right: 47px;
+
+		border-right: 1px solid lighten($dark,93%);
+
+		@media #{$break-xlarge} {
+
+			padding-right: 0;
+
+			border-right: none;
+
+		}
+
+		@media #{$break-large} {
+
+			padding-right: 0;
+
+			border-right: none;
+
+		}
+
+		@media #{$break-medium} {
+
+			padding-right: 0;
+
+			border-right: none;
+
+		}
+
+		@media #{$break-small} {
+
+			padding-right: 0;
+
+			border-right: none;
+
+		}
+
+		@media #{$break-little} {
+
+			padding-right: 0;
+
+			border-right: none;
+
+		}
+		
+	}
+
+}

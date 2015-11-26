@@ -1,0 +1,103 @@
+.my-course-page {
+
+	h3 {
+
+		margin: 0 0 20px;
+
+		font-size: 27px;
+
+		color: lighten($dark,42%);
+
+	}
+
+	.media-left {
+
+		width: 21.5%;
+
+		@media #{$break-xlarge} {
+
+			width: 31.6%;
+
+		}
+
+		@media #{$break-large} {
+
+			width: 28.9%;
+
+			float: left;
+
+		}
+
+		@media #{$break-medium} {
+
+			width: 28.9%;
+
+			float: left;
+
+		}
+
+		@media #{$break-small} {
+
+			width: 100%;
+
+		}
+
+		@media #{$break-little} {
+
+			width: 100%;
+
+		}
+
+	}
+
+	.media-body {
+
+		width: 75.5%;
+
+		@media #{$break-xlarge} {
+
+			width: 65.4%;
+
+		}
+
+		@media #{$break-large} {
+
+			width: 68%;
+
+			float: left;
+
+		}
+
+		@media #{$break-medium} {
+
+			width: 68%;
+
+			float: left;
+
+		}
+
+		@media #{$break-small} {
+
+			width: 100%;
+
+		}
+
+		@media #{$break-little} {
+
+			width: 100%;
+
+		}
+
+		.courseLinks {
+
+			@media #{$break-xlarge} {
+
+				position: inherit;
+
+			}
+
+		}
+
+	}
+	
+}

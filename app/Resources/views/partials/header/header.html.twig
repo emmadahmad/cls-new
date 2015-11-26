@@ -1,0 +1,27 @@
+<header class="header">
+    {% block search_bar %}
+        {{ include('::partials/header:search_bar.html.twig', { }) }}
+    {% endblock %}
+
+    <div class="main_header">
+        <div class="col-lg-4 col-md-4 col-sm-5">
+            {% block menu_top %}
+                {{ include('::partials/menus:menu_top.html.twig', { }) }}
+            {% endblock %}
+        </div>
+
+        <div class="col-lg-5 col-md-4 col-sm-2">
+            {% block logo %}
+                {{ include('::partials/header:logo.html.twig', { }) }}
+            {% endblock %}
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-5">
+            {% block account_menu %}
+                {{ include('::partials/menus:menu_account.html.twig', { }) }}
+            {% endblock %}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</header>
+{{ include('::partials/menus:menu_main.html.twig', { }) }}

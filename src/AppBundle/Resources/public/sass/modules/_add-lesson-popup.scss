@@ -1,0 +1,63 @@
+.addChapterPopup#add_lesson_popup{
+
+  max-width: 768px;
+
+  margin-top: 0;
+
+  margin-left: -359px;
+
+  top: 30px;
+
+  @media #{$break-xxxlarge} {
+
+  	margin-left: -375px;
+
+  }
+
+  @media #{$break-xxlarge} {
+
+  	margin-left: -385px;
+
+  }
+
+  @media #{$break-xlarge} {
+
+  	max-width: 568px;
+
+  	margin-left: -285px;
+
+  }
+
+  @media #{$break-large} {
+
+  	max-width: 568px;
+
+  	margin-left: -285px;
+
+  }
+
+  @media #{$break-medium} {
+
+  	max-width: 420px;
+
+  	margin-left: -210px;
+
+  }
+
+  @media #{$break-small} {
+
+  	max-width: 345px;
+
+  	margin-left: -173px;
+
+  }
+
+  @media #{$break-little} {
+
+  	max-width: 300px;
+
+  	margin-left: -150px;
+
+  }
+
+}

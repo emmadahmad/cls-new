@@ -1,0 +1,232 @@
+.loginAndSearch {
+
+	@media #{$break-large} {
+
+		padding: 15px 0;
+
+	}
+
+	@media #{$break-medium} {
+
+		padding: 15px 0;
+
+	}
+
+	@media #{$break-small} {
+
+		padding: 15px 0;
+
+	}
+
+	@media #{$break-little} {
+
+		padding: 15px 0;
+
+	}
+
+	.before_login{
+
+		float: right;
+
+		padding: 13px 0 0 0;
+
+		@media #{$break-xlarge} {
+
+			margin-right: 6.5%;
+
+		}
+
+		@media #{$break-large} {
+
+			float: none;
+
+			padding: 0;
+
+		}
+
+		@media #{$break-medium} {
+
+			float: none;
+
+			padding: 0;
+
+		}
+
+		@media #{$break-small} {
+
+			float: none;
+
+			padding: 0;
+
+		}
+
+		@media #{$break-little} {
+
+			float: none;
+
+			padding: 0;
+
+		}
+
+	}
+
+	.topLinks {
+
+		margin: 11px 0 0 0;
+
+		padding: 0;
+
+		float: left;
+
+		li {
+
+			display: inline;
+
+			padding: 5px 20px;
+
+			border-left: 1px solid lighten($dark,92%);
+
+			@media #{$break-xxxlarge} {
+				
+				padding: 5px 16.5px;
+
+			}
+
+			@media #{$break-large} {
+
+				&:first-child {
+
+					padding-left: 0;
+
+					border-left: 0;
+
+				}
+
+			}
+
+			@media #{$break-medium} {
+
+				&:first-child {
+
+					padding-left: 0;
+
+					border-left: 0;
+
+				}
+
+			}
+
+			@media #{$break-small} {
+
+				&:first-child {
+
+					padding-left: 0;
+
+					border-left: 0;
+
+				}
+
+			}
+
+			@media #{$break-little} {
+
+				&:first-child {
+
+					padding-left: 0;
+
+					border-left: 0;
+
+				}
+
+			}
+
+			a {
+
+				border-bottom: 2px solid #ec9f0f;
+
+				color: lighten($dark,60%);
+
+				padding-bottom: 2px;
+
+				text-transform: uppercase;
+
+				font-size: 12px;
+
+				&:hover, &:focus {
+
+					text-decoration: none;
+
+					border-bottom: 2px solid #f5a40f;
+
+				}
+
+			}
+
+		}
+
+	}
+
+// SEARCH BAR
+	.navbar-form {
+
+		padding-right: 0;
+
+		padding-left: 0;
+
+		margin: 0 0 0 14px;
+
+		@media #{$break-large} {
+
+			float: right;
+
+			padding: 0;
+
+		}
+
+		@media #{$break-medium} {
+
+			float: right;
+
+			padding: 0;
+
+		}
+
+		@media #{$break-small} {
+
+			float: right;
+
+			padding: 0;
+
+		}
+
+		@media #{$break-little} {
+
+			float: right;
+
+			padding: 0;
+
+		}
+
+		.btn-warning {
+
+			background-color: #ec9f0f;
+
+			border-radius: 0;
+
+			border: 0;
+
+			padding: 11px 13px;
+
+			&:hover {
+
+				background-color: #f5a40f;
+				
+				border: 0;
+
+			}
+
+		}
+
+	}
+	
+}

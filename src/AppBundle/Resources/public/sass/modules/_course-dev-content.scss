@@ -1,0 +1,152 @@
+.courseDevCentent {
+
+  .chaptersCol {
+
+    width: 35%;
+
+    float: left;
+
+    padding-right: 25px;
+
+    @media #{$break-xlarge} {
+
+      width: 40%;
+    }
+
+    @media #{$break-large} {
+
+      width: 40%;
+
+      padding-right: 15px;
+    }
+
+    @media #{$break-medium} {
+
+      width: 100%;
+
+      padding-right: 0;
+    }
+
+    @media #{$break-small} {
+
+      width: 100%;
+
+      padding-right: 0;
+    }
+
+    @media #{$break-little} {
+
+      width: 100%;
+
+      padding-right: 0;
+    }
+  }
+
+  .lessonsCol {
+
+    width: 65%;
+
+    float: left;
+
+    padding-left: 25px;
+
+    @media #{$break-xlarge} {
+
+      width: 60%;
+    }
+
+    @media #{$break-large} {
+
+      width: 60%;
+
+      padding-left: 15px;
+    }
+
+    @media #{$break-medium} {
+
+      width: 100%;
+
+      padding-left: 0;
+
+      margin-top: 8%;
+    }
+
+    @media #{$break-small} {
+
+      width: 100%;
+
+      padding-left: 0;
+
+      margin-top: 8%;
+    }
+
+    @media #{$break-little} {
+
+      width: 100%;
+
+      padding-left: 0;
+
+      margin-top: 8%;
+    }
+  }
+
+  .colHead {
+
+    margin-bottom: 10px;
+
+    position: relative;
+
+    h5 {
+
+      float: left;
+
+      color: lighten($dark,38%);
+
+      font-size: 15px;
+
+      margin: 0;
+
+      img {
+
+        padding-right: 10px;
+      }
+    }
+
+    .btnAdd {
+
+      float: right;
+
+      background-color: #ec9f0f;
+
+      padding: 3px 5px;
+
+      font-size: 11px;
+
+      font-weight: bold;
+
+      color: lighten($dark,100%);
+
+      img {
+
+        padding-right: 5px;
+      }
+
+    }
+
+    .topicRowParent{
+
+      width: 100%;
+
+      margin-top: 10px;
+
+      position: absolute;
+
+      right: 0;
+
+      top: 100%;
+
+    }
+
+  }
+
+}

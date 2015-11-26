@@ -17,12 +17,10 @@ AppBundle\Entity\Subscription:
             type: datetime
             nullable: true
             column: created_at
-
         updatedAt:
             type: datetime
             nullable: true
             column: updated_at
-
         approvedAt:
             type: datetime
             nullable: true
@@ -49,28 +47,4 @@ AppBundle\Entity\Subscription:
                 name: user_id
                 referencedColumnName: id
                 nullable: false
-        creator:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: subscriptionsCreator
-            cascade: ["persist"]
-            joinColumn:
-                name: created_by
-                referencedColumnName: id
-                nullable: false
-        updater:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: subscriptionsUpdater
-            cascade: ["persist"]
-            joinColumn:
-                name: updated_by
-                referencedColumnName: id
-                nullable: true
-        approver:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: subscriptionsApprover
-            cascade: ["persist"]
-            joinColumn:
-                name: approved_by
-                referencedColumnName: id
-                nullable: true
     lifecycleCallbacks: {  }

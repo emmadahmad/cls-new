@@ -1,0 +1,35 @@
+.coverImageBox {
+
+	overflow: hidden;
+
+	margin: 0 0 15px;
+
+	.coverImage {
+
+		img {
+
+			@include border-radius(5px);
+
+			@include pie;
+			
+		}
+
+	}
+
+	.coverImageLink {
+
+		float: right;
+
+		margin-top: 10px;
+
+		color: lighten($dark,68%);
+
+		img {
+
+			padding-right: 5px;
+
+		}
+
+	}
+
+}

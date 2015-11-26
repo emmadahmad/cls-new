@@ -1,0 +1,47 @@
+.logo {
+
+	margin-top: 13px;
+
+    text-align: center;
+
+	@media #{$break-large} {
+
+		padding: 25px 0 10px 0;
+
+		margin-top: 0;
+
+		text-align: left;
+
+	}
+
+	@media #{$break-medium} {
+
+		padding: 25px 0 10px 0;
+
+		margin-top: 0;
+
+		text-align: left;
+
+	}
+
+    @media #{$break-small} {
+
+    	margin-top: 0;
+
+		padding: 25px 0 10px 0;
+
+		text-align: left;
+
+	}
+
+    @media #{$break-little} {
+
+    	margin-top: 0;
+
+		padding: 25px 0 10px 0;
+
+		text-align: left;
+
+	}
+
+}

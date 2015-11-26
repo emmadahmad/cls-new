@@ -1,0 +1,29 @@
+.btnSearch {
+	
+    background-color: transparent;
+
+    border: 0;
+
+    cursor: pointer;
+
+    display: inline-block;
+
+    padding: 5px;
+
+    text-align: center;
+
+    vertical-align: middle;
+
+    white-space: nowrap;
+
+    &:hover,&:focus {
+
+    	@include box-shadow(none);
+    
+	    @include border-radius(0px);
+
+	    @include pie;
+        
+    }
+
+}

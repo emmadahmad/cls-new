@@ -1,0 +1,41 @@
+AppBundle\Entity\Payment:
+    type: entity
+    table: payments
+    repositoryClass: AppBundle\Repository\PaymentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        paymentId:
+            type: string
+            length: 40
+            column: payment_id
+        paymentMethod:
+            type: string
+            length: 20
+            column: payment_method
+        paymentType:
+            type: string
+            length: 20
+            column: payment_type
+        paymentResponse:
+            type: text
+            column: payment_response
+        dateCreated:
+            type: datetime
+            column: date_created
+        dateUpdated:
+            type: datetime
+            column: date_updated
+    manyToOne:
+        user:
+            targetEntity: AppBundle\Entity\User
+            cascade: ["persist"]
+            nullable: true
+            joinColumn:
+                 name: user_id
+                 referencedColumnName: id
+    lifecycleCallbacks: {  }

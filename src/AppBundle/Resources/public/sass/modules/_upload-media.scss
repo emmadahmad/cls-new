@@ -1,0 +1,48 @@
+.upload_media{
+
+	position: relative;
+
+	.progress{
+
+		height: 5px;
+
+		margin-bottom: 5px;
+
+	}
+
+	.panel{
+
+		padding: 3px 9px 5px 10px;
+
+		background: lighten($dark, 100%);
+
+		border: 1px solid lighten($dark, 90%);
+
+		// @include box-shadow(0 3px 3px rgba(0, 0, 0, 0.06));
+
+		@include pie;
+
+		.del-media{
+
+			font-size: 16px;
+
+			color: $brand-danger;
+
+			float: right;
+
+			cursor: pointer;
+
+			&:hover{
+
+				color: lighten($brand-danger, 10%);
+
+			}
+
+		}
+
+	}
+
+
+
+
+}

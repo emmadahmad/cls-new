@@ -1,0 +1,32 @@
+.breadcrumb {
+
+	padding: 7px 15px;
+
+	margin: 0;
+
+	@include box-shadow(0 3px 3px rgba(0, 0, 0, 0.03) inset);
+
+	@include border-radius(0);
+
+	@include pie;
+
+	li {
+
+		font-size: 12px;
+
+		& + li:before {
+
+			content: url(#{$imagesPath}ui/breadcrumb_arrow.png);
+
+			padding: 0 8px;
+
+			color: lighten($dark,50%);
+		}
+
+		a {
+
+			color: lighten($dark,50%);
+		}
+	}
+
+}

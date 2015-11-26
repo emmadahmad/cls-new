@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        {% embed "BeusoftThemesBundle:Partials:head.html.twig" %} {% endembed %}
+    {% endblock %}
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        {% block header %}
+            {{ include(':partials/header:header.html.twig', { }) }}
+        {% endblock header %}
+
+        {% block breadcrumbs %} {% endblock breadcrumbs %}
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="content clearfix {{ app.request.get('_route') }}">
+                    {% set _block = block('main_title') %}
+                    {% if _block is not empty %}
+                        <h3 class="formPageHead fancyBorder">
+                            <span>{{ _block|raw }}</span>
+                        </h3>
+                    {% endif %}
+
+                    {% set _block = block('fancy_title') %}
+                    {% if _block is not empty %}
+                        <div class="mainTitle fancy">
+                            <h2>{{ _block|raw }}</h2>
+                        </div>
+                    {% endif %}
+
+                    {% block main_content %}{% endblock main_content %}
+
+                </div><!-- class="content" END -->
+            </div><!--class="col-lg-12 col-md-12 col-sm-12" END -->
+        </div><!--class="row" END -->
+
+        {% block footer %}
+            {{ include('BeusoftThemesBundle:Partials:footer/footer.html.twig', { }) }}
+        {% endblock footer %}
+    </div>
+</div>
+
+{% block js_footer %}
+
+{% endblock %}
+</body>
+</html>
+
+
+
+
+
+

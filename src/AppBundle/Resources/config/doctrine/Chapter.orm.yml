@@ -49,28 +49,4 @@ AppBundle\Entity\Chapter:
                 name: course_id
                 referencedColumnName: id
                 nullable: false
-        creator:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: chaptersCreator
-            cascade: ["persist"]
-            joinColumn:
-                name: created_by
-                referencedColumnName: id
-                nullable: false
-        updater:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: chaptersUpdater
-            cascade: ["persist"]
-            joinColumn:
-                name: updated_by
-                referencedColumnName: id
-                nullable: true
-        approver:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: chaptersApprover
-            cascade: ["persist"]
-            joinColumn:
-                name: approved_by
-                referencedColumnName: id
-                nullable: true
     lifecycleCallbacks: {  }

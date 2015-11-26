@@ -36,6 +36,13 @@ AppBundle\Entity\User:
             scale: '2'
             options:
                 default: 0.00
+            nullable: true
+        emailVerified:
+            type: boolean
+            column: email_verified
+            nullable: true
+            options:
+                default: 0
         dateCreated:
             type: datetime
             nullable: true
@@ -74,133 +81,5 @@ AppBundle\Entity\User:
         subscriptions:
             targetEntity: AppBundle\Entity\Subscription
             mappedBy: user
-            cascade: ["persist", "remove"]
-        commentsCreator:
-            targetEntity: AppBundle\Entity\Comment
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        commentsUpdater:
-            targetEntity: AppBundle\Entity\Comment
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        commentsApprover:
-            targetEntity: AppBundle\Entity\Comment
-            mappedBy: approver
-            cascade: ["persist", "remove"]
-        courseTagsCreator:
-            targetEntity: AppBundle\Entity\CourseTag
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        courseTagsUpdater:
-            targetEntity: AppBundle\Entity\CourseTag
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        courseTagsApprover:
-            targetEntity: AppBundle\Entity\CourseTag
-            mappedBy: approver
-            cascade: ["persist", "remove"]
-        tagsCreator:
-            targetEntity: AppBundle\Entity\Tag
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        tagsUpdater:
-            targetEntity: AppBundle\Entity\Tag
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        tagsApprover:
-            targetEntity: AppBundle\Entity\Tag
-            mappedBy: approver
-            cascade: ["persist", "remove"]
-        chaptersCreator:
-            targetEntity: AppBundle\Entity\Chapter
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        chaptersUpdater:
-            targetEntity: AppBundle\Entity\Chapter
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        chaptersApprover:
-            targetEntity: AppBundle\Entity\Chapter
-            mappedBy: approver
-            cascade: ["persist", "remove"]
-        lessonsCreator:
-            targetEntity: AppBundle\Entity\Lesson
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        lessonsUpdater:
-            targetEntity: AppBundle\Entity\Lesson
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        lessonsApprover:
-            targetEntity: AppBundle\Entity\Lesson
-            mappedBy: approver
-            cascade: ["persist", "remove"]
-        coursesCreator:
-            targetEntity: AppBundle\Entity\Course
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        coursesUpdater:
-            targetEntity: AppBundle\Entity\Course
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        coursesApprover:
-            targetEntity: AppBundle\Entity\Course
-            mappedBy: approver
-            cascade: ["persist", "remove"]
-        categoriesCreator:
-            targetEntity: AppBundle\Entity\Category
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        categoriesUpdater:
-            targetEntity: AppBundle\Entity\Category
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        categoriesApprover:
-            targetEntity: AppBundle\Entity\Category
-            mappedBy: approver
-            cascade: ["persist", "remove"]
-        courseCategoriesCreator:
-            targetEntity: AppBundle\Entity\CourseCategory
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        courseCategoriesUpdater:
-            targetEntity: AppBundle\Entity\CourseCategory
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        courseCategoriesApprover:
-            targetEntity: AppBundle\Entity\CourseCategory
-            mappedBy: approver
-            cascade: ["persist", "remove"]
-        transactionsCreator:
-            targetEntity: AppBundle\Entity\Transaction
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        subscriptionsCreator:
-            targetEntity: AppBundle\Entity\Subscription
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        subscriptionsUpdater:
-            targetEntity: AppBundle\Entity\Subscription
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        subscriptionsApprover:
-            targetEntity: AppBundle\Entity\Subscription
-            mappedBy: approver
-            cascade: ["persist", "remove"]
-        preferencesCreator:
-            targetEntity: AppBundle\Entity\Preference
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        preferencesUpdater:
-            targetEntity: AppBundle\Entity\Preference
-            mappedBy: updater
-            cascade: ["persist", "remove"]
-        preferenceTypesCreator:
-            targetEntity: AppBundle\Entity\PreferenceType
-            mappedBy: creator
-            cascade: ["persist", "remove"]
-        preferenceTypesUpdater:
-            targetEntity: AppBundle\Entity\PreferenceType
-            mappedBy: updater
             cascade: ["persist", "remove"]
     lifecycleCallbacks: {  }

@@ -1,0 +1,39 @@
+{% set _login = is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
+{% if _login == true %}
+
+    <div class="loginAndSearch clearfix">
+        <div class="after_login">
+            <span style="float: left; margin-top: 26px; font-size: 11px; font-weight: bold; margin-right: 10px; color: #ec9f0f">Welcome {{ not app.user.fullName is empty ? app.user.fullName : app.user.username }}</span>
+            <form class="navbar-form searchMargin" role="search">
+                <a href="#m" id="active_search" class="btnSearch">
+                    <img src="{{ asset('bundles/beusoftthemes/images/content/search_icon_orange.png') }}" alt="Search Icon">
+                </a>
+            </form>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle btn_user" type="button" id="account_menu" data-toggle="dropdown" aria-expanded="true">
+                </button>
+                {{ knp_menu_render('BeusoftThemesBundle:Builder:accountMenu') }}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+{% elseif _login == false %}
+
+    <div class="loginAndSearch clearfix">
+        <div class="before_login">
+            <ul class="topLinks">
+                <li><a href="{{ path('fos_user_security_login') }}">Sign in</a></li>
+                <li><a href="{{ path('fos_user_registration_register') }}">Join</a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <a href="#m" id="active_search" class="btn btn-warning">
+                    <img src="{{ asset('bundles/beusoftthemes/images/content/search_icon.png') }}" alt="Search Icon">
+                </a>
+            </form>
+            <div class="clearfix clear"></div>
+        </div>
+    </div>
+
+{% endif %}

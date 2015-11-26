@@ -1,0 +1,125 @@
+.pagination {
+
+	margin: 30px 0 0;
+
+	li {
+
+		a, span {
+
+			background-color: lighten($dark,88%);
+
+			margin-right: 2px;
+
+			margin-left: 0;
+
+			font-size: 14px;
+
+			color: lighten($dark,60%);
+
+			border: 0;
+
+			padding: 8px 16px;
+
+			cursor: pointer;
+
+			outline: none;
+
+			@include transition(all 0.5s ease);
+
+			@include pie;
+
+			&:first-child {
+
+				@include border-radius(0);
+
+				@include pie;
+
+			}
+
+			&:last-child {
+
+				@include border-radius(0);
+
+				@include pie;
+
+			}
+
+			&:hover, &:focus {
+
+				background-color: #ec9f0f;
+
+				color: lighten($dark,100%);
+
+				@include transition(all 0.5s ease);
+
+				@include pie;
+
+			}
+
+			@media #{$break-medium} {
+
+				margin-bottom: 2px;
+
+			}
+
+			@media #{$break-small} {
+
+				margin-bottom: 2px;
+
+			}
+
+			@media #{$break-little} {
+
+				margin-bottom: 2px;
+
+			}
+
+		}
+
+	}
+
+	.disabled {
+
+		a, span {
+
+			background-color: lighten($dark,88%);
+
+			color: lighten($dark,70%);
+
+			outline: none;
+
+			&:hover, &:focus {
+
+				background-color: lighten($dark,88%);
+
+				color: lighten($dark,70%);
+
+			}
+
+		}
+
+	}
+
+	.active {
+
+		a, span {
+
+			background-color: #ec9f0f;
+
+			color: lighten($dark,100%);
+
+			outline: none;
+
+			&:hover, &:focus {
+
+				background-color: #ec9f0f;
+
+				color: lighten($dark,100%);
+
+			}
+
+		}
+
+	}
+	
+}

@@ -1,0 +1,95 @@
+.leftMenuParent {
+	
+	.panel-group {
+
+		padding: 0;
+
+		list-style: none;
+		
+		@include box-shadow (0 1px 1px rgba(247, 222, 174, 0.4));
+
+		@include pie;
+
+		.panel-default {
+
+			border-radius: 0;
+
+			border-color: #f7deae;
+
+			box-shadow: none;
+
+			margin-top: -1px !important;
+
+			& > a {
+
+				display: block;
+
+				background-color: lighten($dark,100%);
+
+				border-color: #f7deae;
+
+				color: lighten($dark,0%);
+
+				padding: 0;
+
+				padding: 10px 10px;
+
+				font-size: 15px;
+
+				outline: none;
+
+				&:hover, &:focus {
+
+					color: #ec9f0f;
+
+					text-decoration: none;
+
+				}
+
+				.glyphicon{
+
+					font-size: 14px;
+
+					margin-right: 10px;
+
+					color: lighten($dark, 70%);
+
+				}
+
+				.glyphicon-chevron-down{
+
+					color: $orange;
+
+				}
+
+			}
+
+			ul.panel-collapse {
+
+				padding: 0;
+
+				li {
+
+					@include clearfix;
+
+					list-style: none;
+
+					a {
+
+						display: block;
+
+						padding: 5px 10px 5px 40px;
+
+						color: #d28b05;
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

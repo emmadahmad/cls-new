@@ -1,0 +1,115 @@
+.navAfterLogin {
+
+	.navbar {
+
+		min-height: 36px;
+
+		@include box-shadow(0 1px 5px rgba(0, 0, 0, 0.35) inset);
+		
+		@include border-radius(0px);
+
+		@include pie;
+
+		margin: 0;
+
+		.container-fluid, .navbar-collapse {
+
+			padding: 0;
+
+			@media #{$break-little} {
+
+				padding: 0 15px;
+
+			}
+
+		}
+
+		.navbar-nav {
+
+			li {
+
+				a {
+
+					padding: 8px 25px;
+
+					color: lighten($dark,76%);
+
+					&:hover {
+
+						background-color: #ec9f0f;
+
+						color: lighten($dark,100%);
+
+					}
+
+				}
+
+			}
+
+			.active {
+
+				a {
+
+					background-color: #ec9f0f;
+
+					color: lighten($dark,100%);
+
+				}
+
+			}
+
+		}
+
+		@media #{$break-large} {
+
+			padding: 0 15px;
+
+		}
+
+		@media #{$break-medium} {
+
+			padding: 0 15px;
+
+		}
+
+		@media #{$break-small} {
+
+			padding: 0 15px;
+
+		}
+
+	}
+
+	.navbar-default {
+
+		background-color: lighten($dark,36%);
+
+		border: 0;
+
+	}
+
+}
+
+
+// TOOGLE NAVBAR
+.navbar-toggle {
+		
+	@include border-radius(0px);
+
+	@include pie;
+
+	border-color: transparent !important;
+
+	&:hover,&:focus {
+
+		background-color: transparent !important;
+
+	}
+
+	.icon-bar {
+
+		background-color: lighten($dark,100%) !important;
+
+	}
+	
+}

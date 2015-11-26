@@ -1,0 +1,46 @@
+.newsletterSocial {
+
+	padding-top: 50px;
+
+	margin-left: 20px;
+
+	.media-left {
+
+		float: left;
+
+		padding-right: 15px;
+	}
+
+	.media-body {
+
+		h4 {
+
+			font-size: 27px;
+
+			color: lighten($dark,100%);
+		}
+
+		p {
+
+			font-size: 12px;
+
+			color: lighten($dark,48%);
+		}
+	}
+
+	.btn {
+
+		font-size: 18px;
+
+		width: 98%;
+
+		margin: 17px 0 0 8px;
+
+		padding: 10px 12px;
+	}
+
+	.btn-warning {
+
+		background-color: #ec9f0f;
+	}
+}

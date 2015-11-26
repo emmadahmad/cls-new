@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        {% embed "BeusoftThemesBundle:Partials:head.html.twig" %} {% endembed %}
+    {% endblock %}
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        {% block header %}
+            {{ include('BeusoftThemesBundle:Partials:header/header.html.twig', { }) }}
+        {% endblock header %}
+
+        {% block main_banner %} {% endblock main_banner %}
+
+        {% block breadcrumbs %} {% endblock breadcrumbs %}
+
+        <div class="clearfix">
+            <div class="content home-page {{ app.request.get('_route') }}">
+
+                {% set _block = block('main_title') %}
+                {% if _block is not empty %}
+                    <div class="mainTitle fancy">
+                        <h2>{{ _block|raw }}</h2>
+                    </div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        {% block sidebar %}{% endblock sidebar %}
+                    </div>
+
+                    <div class="col-lg-7 col-md-7 col-sm-12">
+                        {% block main_content %}{% endblock main_content %}
+                    </div><!--class="col-lg-9 col-md-9 col-sm-12" END -->
+                </div>
+            </div><!-- class="content" END -->
+        </div><!--class="row" END -->
+
+        {% block footer %}
+            {{ include('BeusoftThemesBundle:Partials:footer/footer.html.twig', { }) }}
+        {% endblock footer %}
+    </div>
+</div>
+
+{% block js_footer %}{% endblock %}
+</body>
+</html>
+
+
+
+
+
+

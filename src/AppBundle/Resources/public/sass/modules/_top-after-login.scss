@@ -1,0 +1,163 @@
+.loginAndSearch {
+
+	.after_login{
+
+		margin: 0 -16px;
+
+		float: right;
+
+		@media #{$break-small} {
+
+			padding-right: 10px;
+
+		}
+
+		@media #{$break-little} {
+
+			float: none;
+
+		}
+
+		.dropdown{
+
+			width: 71px;
+
+			height: 71px;
+
+			padding: 13px 15px 20px 15px;
+
+			float: left;
+
+			&.open{
+
+				background: $orange;
+
+				.btn_user{
+
+					background-position: center bottom;
+
+				}
+
+			}
+
+		}
+
+		.searchMargin{
+
+			margin: 16px 15px 0 0;
+
+			float: left;
+
+		}
+
+	}
+
+	.dropdown {
+
+		.btn_user {
+			
+			width: 42px;
+
+			height: 42px;
+
+			overflow: hidden;
+
+			background: url(#{$imagesPath}ui/user_icon.png) no-repeat center top;
+			
+		}
+
+		.btn-default {
+
+			background-color: transparent;
+
+			border: 0;
+
+			&:hover, &:focus, &:active {
+
+				background-color: transparent;
+
+				@include box-shadow(none);
+
+				@include pie;
+
+				outline: none;
+
+			}
+
+		}
+
+		.open {
+
+			.dropdown-toggle {
+
+				background-color: transparent;
+
+				@include box-shadow(none);
+
+				@include pie;
+
+			}
+
+		}
+
+		.active {
+
+			background-color: transparent;
+
+			@include box-shadow(none);
+
+			@include pie;
+
+		}
+
+		.dropdown-menu {
+
+			min-width: 155px;
+
+			background-color: $orange;
+
+			margin: 0;
+
+			padding: 0;
+
+			border: 0;
+
+			left: inherit;
+
+			right: 0;
+
+			border: 1px solid $orange;
+
+			@include box-shadow(none);
+
+			@include border-radius(0px);
+
+			@include pie;
+
+			li {
+
+				a {
+
+					font-size: 13px;
+
+					color: lighten($dark,100%);
+
+					padding: 10px 20px;
+
+					&:hover {
+
+						background-color: lighten($dark, 100%);
+
+						color: $orange;
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+	
+}

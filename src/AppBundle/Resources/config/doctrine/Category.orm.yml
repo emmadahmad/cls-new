@@ -51,28 +51,4 @@ AppBundle\Entity\Category:
                 referencedColumnName: id
                 onDelete:  "SET NULL"
                 nullable: true
-        creator:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: categoriesCreator
-            cascade: ["persist"]
-            joinColumn:
-                name: created_by
-                referencedColumnName: id
-                nullable: false
-        updater:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: categoriesUpdater
-            cascade: ["persist"]
-            joinColumn:
-                name: updated_by
-                referencedColumnName: id
-                nullable: true
-        approver:
-            targetEntity: AppBundle\Entity\User
-            inversedBy: categoriesApprover
-            cascade: ["persist"]
-            joinColumn:
-                name: approved_by
-                referencedColumnName: id
-                nullable: true
     lifecycleCallbacks: {  }

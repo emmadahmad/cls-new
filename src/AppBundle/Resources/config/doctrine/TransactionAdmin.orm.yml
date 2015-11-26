@@ -1,0 +1,4 @@
+AppBundle\Entity\TransactionAdmin:
+    type: entity
+    repositoryClass: AppBundle\Repository\TransactionAdminRepository
+    lifecycleCallbacks: {  }
