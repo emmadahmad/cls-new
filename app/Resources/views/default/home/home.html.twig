@@ -16,8 +16,8 @@
 
 {% block main_content_2cols_left %}
     <div class="categoryBtns clearfix">
-        {#{{ include(':partials/elements:switcher_skills.html.twig', { 'data': 'all', 'skillId' : skill_id, 'dataType' : 'category'}) }}#}
-        {#{{ include(':partials/elements:sorter.html.twig', { 'sorting' : sorting }) }}#}
+        {{ include(':partials/elements:switcher_skills.html.twig', { 'data': 'all', 'skillId' : skill_id, 'dataType' : 'category'}) }}
+        {{ include(':partials/elements:sorter.html.twig', { 'sorting' : sorting }) }}
     </div><!-- class="categoryBtns" END -->
 
     <!-- START COURSE LIST -->

@@ -10,8 +10,6 @@ class HomeController extends MainController
 {
     public function homeAction($category_id = 'all', $skill_id = 4)
     {
-        return $this->render(':default/home:home.html.twig', array());
-        die("Welcome to Home Page");
         $em = $this->getDoctrine()->getManager();
         $request = $request = Request::createFromGlobals();
         $sorting = $request->query->get('sorting');
@@ -19,7 +17,7 @@ class HomeController extends MainController
         {
             $sorting = 'date_dsc';
         }
-        $array = $em->getRepository('BeusoftCoursesBundle:Course')->getBySkills($skill_id, $sorting);
+        $array = $em->getRepository('AppBundle:Course')->getBySkills($skill_id, $sorting);
         $courses = $this->paginator($array);
 
         return $this->render(':default/home:home.html.twig',

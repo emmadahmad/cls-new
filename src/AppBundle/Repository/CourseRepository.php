@@ -12,4 +12,41 @@ use Doctrine\ORM\EntityRepository;
  */
 class CourseRepository extends EntityRepository
 {
+    public function getBySkills($skill_id, $sorting)
+    {
+        $queryBuilder = $this->_em->createQueryBuilder()
+            ->select('a.id, u.username as user, u.fullName, a.totalLikes, b.id as coverMedia, b.name as fileName, b.path as filePath, a.skillId, a.title, a.subtitle, a.prerequisites, a.description, a.language, a.price, a.status, a.isFree, a.dateCreated')
+            ->from('AppBundle:Course', 'a')
+            ->leftJoin('AppBundle:Media', 'b', 'WITH', 'a.coverMedia = b.id')
+            ->join('AppBundle:User', 'u', 'WITH', 'a.user = u.id');
+
+        if ($skill_id != 4)
+        {
+            $queryBuilder
+                ->andWhere('a.skillId = :skillId')
+                ->setParameter('skillId', $skill_id);
+        }
+        if($sorting == 'date_asc')
+        {
+            $queryBuilder
+                ->orderBy('a.dateCreated', 'ASC');
+        }
+        elseif($sorting == 'date_dsc')
+        {
+            $queryBuilder
+                ->orderBy('a.dateCreated', 'DESC');
+        }
+        elseif($sorting == 'name_asc')
+        {
+            $queryBuilder
+                ->orderBy('a.title', 'ASC');
+        }
+        elseif($sorting == 'name_dsc')
+        {
+            $queryBuilder
+                ->orderBy('a.title', 'DESC');
+        }
+        $result = $queryBuilder->getQuery()->getArrayResult();
+        return $result;
+    }
 }

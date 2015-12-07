@@ -1,3 +1,7 @@
 cls_home_homepage:
     path:     /
     defaults: { _controller: AppBundle:Home:home}
+
+cls_home_homepage_skills:
+    path:     /{category_id}/skill/{skill_id}
+    defaults: { _controller: AppBundle:Home:home }

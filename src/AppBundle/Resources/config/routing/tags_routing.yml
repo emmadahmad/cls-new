@@ -1,0 +1,7 @@
+cls_tags_homepage:
+    path:     /tag/{tag_id}
+    defaults: { _controller: BeusoftTagsBundle:Default:index }
+
+cls_tags_homepage_skills:
+    path:     /tag/{tag_id}/skill/{skill_id}
+    defaults: { _controller: BeusoftTagsBundle:Default:index }
