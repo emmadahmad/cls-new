@@ -76,7 +76,7 @@ class Builder extends ContainerAware
                     $menu[$category->getParent()->getTitle()]->setLinkAttributes(array('href' => $ref, 'class' => 'accordion-toggle', 'data-toggle' => 'collapse', 'data-parent' => '#sidebar_menu'));
                     array_push($linksDone,$name);
                 }
-                $menu[$category->getParent()->getTitle()]->addChild($category->getTitle(), array('route' => 'beusoft_categories_homepage', 'routeParameters' => array('category_id' => $category->getId())));
+                $menu[$category->getParent()->getTitle()]->addChild($category->getTitle(), array('route' => 'cls_categories_homepage', 'routeParameters' => array('category_id' => $category->getId())));
             }
         }
         return $menu;
