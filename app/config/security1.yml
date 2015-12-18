@@ -1,0 +1,55 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+        in_memory:
+            memory: ~
+
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER, ROLE_AUTHOR, ROLE_SUBSCRIBER
+        ROLE_AUTHOR: ROLE_USER
+        ROLE_SUBSCRIBER: ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            form_login:
+#                success_handler: authentication_handler
+#                failure_handler: authentication_handler
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                check_path: fos_user_security_check
+                login_path: fos_user_security_login
+                use_forward: false
+                failure_path:   null
+                always_use_default_target_path: false
+                default_target_path: cls_home_homepage
+                target_path_parameter: _target_path
+            logout:
+                path:   fos_user_security_logout
+                target: fos_user_security_login
+                invalidate_session: true
+            anonymous:    true
+            remember_me:
+                key: '%secret%'
+                lifetime: 31536000
+                path: fos_user_security_login
+                domain: ~
+            switch_user: true
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }

@@ -1,0 +1,11 @@
+cls_user_admin_security_login:
+    path:     /login
+    defaults: { _controller: AppBundle:Admin/AdminSecurity:login }
+
+cls_user_admin_security_check:
+    path:     /login_check
+    defaults: { _controller: AppBundle:Admin/AdminSecurity:check }
+
+cls_user_admin_security_logout:
+    path:     /logout
+    defaults: { _controller: AppBundle:Admin/AdminSecurity:logout }

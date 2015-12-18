@@ -1,0 +1,19 @@
+cls_security:
+    resource: "@AppBundle/Resources/config/routing/user/security.yml"
+    prefix:   /
+
+cls_profile:
+    resource: "@AppBundle/Resources/config/routing/user/profile.yml"
+    prefix:   /user/profile
+
+cls_registration:
+    resource: "@AppBundle/Resources/config/routing/user/registration.yml"
+    prefix:   /register
+
+cls_resetting:
+    resource: "@AppBundle/Resources/config/routing/user/resetting.yml"
+    prefix:   /resetting
+
+cls_change_password:
+    resource: "@AppBundle/Resources/config/routing/user/change_password.yml"
+    prefix:   /user/profile

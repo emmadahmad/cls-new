@@ -1,3 +1,7 @@
 admin_category:
     resource: "@AppBundle/Resources/config/routing/admin/admin_category_routing.yml"
     prefix:   /
+
+admin_fos:
+    resource: "@AppBundle/Resources/config/routing/admin/admin_security.yml"
+    prefix:   /

@@ -22,23 +22,73 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            pattern: ^/
+#        main:
+#            pattern: ^/
+#            form_login:
+#                provider: fos_userbundle
+#                csrf_provider: form.csrf_provider
+#                check_path: /login_check
+#                login_path: /login
+#                use_forward: false
+#                always_use_default_target_path: false
+#                default_target_path: /
+#                target_path_parameter: _target_path
+#            logout:
+#                path:   /logout
+#                target: /
+#            anonymous:    true
+        admin:
+            switch_user:        true
+            pattern:            ^/admin(.*)
+            context:            user
             form_login:
-                provider: fos_userbundle
-                csrf_provider: form.csrf_provider
-                check_path: /login_check
-                login_path: /login
-                use_forward: false
+                provider:       fos_userbundle
+                login_path:     cls_user_admin_security_login
+                use_forward:    false
+#                check_path:     cls_user_admin_security_check
+                failure_path:   null
                 always_use_default_target_path: false
-                default_target_path: /
-                target_path_parameter: _target_path
+                default_target_path: cls_home_homepage
+                target_path_parameter:  _target_path
             logout:
-                path:   /logout
-                target: /
-            anonymous:    true
+                path:           cls_user_admin_security_logout
+                target:         cls_user_admin_security_login
+            anonymous:          true
+        main:
+            pattern:             ^/
+            context:             user
+            form_login:
+#                success_handler: authentication_handler
+#                failure_handler: authentication_handler
+                provider:       fos_userbundle
+                login_path:     fos_user_security_login
+                use_forward:    false
+#                check_path:     fos_user_security_check
+                failure_path:   null
+                remember_me: true
+                always_use_default_target_path: false
+                default_target_path: cls_home_homepage
+                target_path_parameter:  _target_path
+                use_referer:        true
+            logout:
+                path:              fos_user_security_logout
+                target:           fos_user_security_login
+                invalidate_session: true
+            anonymous:          true
+            remember_me:
+                key: '%secret%'
+                lifetime: 31536000
+                path: /login
+                domain: ~
+            switch_user: true
+
+
+
 
     access_control:
+        - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/logout$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login_check$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }

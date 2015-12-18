@@ -46,9 +46,30 @@
             </div><!--class="row" END -->
         {% endif %}
 
+        {% if block('main_content_1col_form') is not empty %}
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="content clearfix {{ app.request.get('_route') }}">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                {% block form_error_messages %}{% endblock form_error_messages %}
+                                {% block form_success_messages %}{% endblock form_success_messages %}
+                            </div>
+                        </div>
+
+                        {% if _title is not empty %}
+                            {{ include(':partials/elements:title.html.twig', { '_content': _title, '_title_type' : _title_type }) }}
+                        {% endif %}
+
+                        {% block main_content_1col_form %}{% endblock main_content_1col_form %}
+                    </div><!-- class="content" END -->
+                </div><!--class="col-lg-12 col-md-12 col-sm-12" END -->
+            </div><!--class="row" END -->
+        {% endif %}
+
         {% if block('main_content_2cols_left') is not empty %}
             <div class="clearfix">
-                <div class="content home-page {{ app.request.get('_route') }}">
+                <div class="content {{ app.request.get('_route') }}">
                     {% if _title is not empty %}
                         {{ include(':partials/elements:title.html.twig', { '_content': _title, '_title_type' : _title_type }) }}
                     {% endif %}
@@ -67,7 +88,7 @@
 
         {% if block('main_content_2cols_left_medium') is not empty %}
             <div class="clearfix">
-                <div class="content home-page {{ app.request.get('_route') }}">
+                <div class="content {{ app.request.get('_route') }}">
                     {% if _title is not empty %}
                         {{ include(':partials/elements:title.html.twig', { '_content': _title, '_title_type' : _title_type }) }}
                     {% endif %}
@@ -79,6 +100,44 @@
                         <div class="col-lg-9 col-md-9 col-sm-12">
                             {% block main_content_2cols_left_medium %}{% endblock main_content_2cols_left_medium %}
                         </div><!--class="col-lg-9 col-md-9 col-sm-12" END -->
+                    </div>
+                </div><!-- class="content" END -->
+            </div><!--class="row" END -->
+        {% endif %}
+
+        {% if block('main_content_2cols_right') is not empty %}
+            <div class="clearfix">
+                <div class="content {{ app.request.get('_route') }}">
+                    {% if _title is not empty %}
+                        {{ include(':partials/elements:title.html.twig', { '_content': _title, '_title_type' : _title_type }) }}
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-lg-9 col-md-9 col-sm-12">
+                            {% block sidebar_2cols_right %}{% endblock sidebar_2cols_right %}
+                        </div><!--class="col-lg-9 col-md-9 col-sm-12" END -->
+
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            {% block main_content_2cols_right %}{% endblock main_content_2cols_right %}
+                        </div>
+                    </div>
+                </div><!-- class="content" END -->
+            </div><!--class="row" END -->
+        {% endif %}
+
+        {% if block('main_content_2cols_right_medium') is not empty %}
+            <div class="clearfix">
+                <div class="content {{ app.request.get('_route') }}">
+                    {% if _title is not empty %}
+                        {{ include(':partials/elements:title.html.twig', { '_content': _title, '_title_type' : _title_type }) }}
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-lg-7 col-md-7 col-sm-12">
+                            {% block sidebar_2cols_right_medium %}{% endblock sidebar_2cols_right_medium %}
+                        </div><!--class="col-lg-9 col-md-9 col-sm-12" END -->
+
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            {% block main_content_2cols_right_medium %}{% endblock main_content_2cols_right_medium %}
+                        </div>
                     </div>
                 </div><!-- class="content" END -->
             </div><!--class="row" END -->
