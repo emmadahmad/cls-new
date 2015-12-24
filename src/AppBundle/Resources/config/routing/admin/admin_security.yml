@@ -4,7 +4,7 @@ cls_user_admin_security_login:
 
 cls_user_admin_security_check:
     path:     /login_check
-    defaults: { _controller: AppBundle:Admin/AdminSecurity:check }
+    defaults: { _controller: FOSUserBundle:Security:check }
 
 cls_user_admin_security_logout:
     path:     /logout

@@ -20,9 +20,6 @@
 
 {% block main_content_1col_form %}
     <form action="{{ path("cls_user_admin_security_check") }}" method="post" class="mainForm">
-        {% if error %}
-            <div class="alert alert-error">{{ error|trans({}, 'SonataUserBundle') }}</div>
-        {% endif %}
         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
         <div class="form-group">
             <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }} <span>*</span></label>

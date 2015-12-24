@@ -24,3 +24,22 @@ services:
         arguments: [@service_container]
         tags:
             - { name: twig.extension }
+
+
+    #FOS USER FORM TYPES
+
+    cls_users.change_password.form.type:
+        class: AppBundle\Form\Type\ChangePasswordFormType
+        arguments: ['@service_container',%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: cls_change_password }
+    cls_users.registration.form.type:
+        class: AppBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: cls_user_registration }
+    cls_users.profile.form.type:
+        class: AppBundle\Form\Type\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: cls_user_profile }

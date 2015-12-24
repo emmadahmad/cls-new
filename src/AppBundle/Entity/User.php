@@ -87,6 +87,7 @@ class User extends BaseUser
      */
     public function __construct()
     {
+        parent::__construct();
         $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
         $this->transactions = new \Doctrine\Common\Collections\ArrayCollection();
         $this->courses = new \Doctrine\Common\Collections\ArrayCollection();

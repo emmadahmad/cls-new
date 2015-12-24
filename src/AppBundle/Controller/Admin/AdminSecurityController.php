@@ -19,11 +19,31 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class AdminSecurityController extends ContainerAware
+class AdminSecurityController extends BaseController
 {
-//    public function loginAction(Request $request)
+    public function loginAction(Request $request)
+    {
+        $user = $this->container->get('security.context')->getToken()->getUser();
+        if ($user instanceof UserInterface) {
+            $this->container->get('session')->getFlashBag()->set('sonata_user_error', 'sonata_user_already_authenticated');
+            $url = $this->container->get('router')->generate('cls_home_homepage');
+
+            return new RedirectResponse($url);
+        }
+
+        if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN')) {
+            $refererUri = $request->server->get('HTTP_REFERER');
+
+            return new RedirectResponse($refererUri && $refererUri != $request->getUri() ? $refererUri : $this->container->get('router')->generate('cls_home_homepage'));
+        }
+
+        return parent::loginAction($request);
+    }
+
+//    public function loginAction()
 //    {
 //        $user = $this->container->get('security.context')->getToken()->getUser();
+//
 //        if ($user instanceof UserInterface) {
 //            $this->container->get('session')->getFlashBag()->set('sonata_user_error', 'sonata_user_already_authenticated');
 //            $url = $this->container->get('router')->generate('cls_home_homepage');
@@ -31,58 +51,44 @@ class AdminSecurityController extends ContainerAware
 //            return new RedirectResponse($url);
 //        }
 //
-//        return parent::loginAction($request);
+//        $request = $this->container->get('request');
+//        /* @var $request \Symfony\Component\HttpFoundation\Request */
+//        $session = $request->getSession();
+//        /* @var $session \Symfony\Component\HttpFoundation\Session */
+//
+//        // get the error if any (works with forward and redirect -- see below)
+//        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+//            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+//        } elseif (null !== $session && $session->has(SecurityContext::AUTHENTICATION_ERROR)) {
+//            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
+//            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
+//        } else {
+//            $error = '';
+//        }
+//
+//        if ($error) {
+//            // TODO: this is a potential security risk (see http://trac.symfony-project.org/ticket/9523)
+//            $error = $error->getMessage();
+//        }
+//        // last username entered by the user
+//        $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
+//
+//        $csrfToken = $this->container->has('form.csrf_provider')
+//            ? $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate')
+//            : null;
+//
+//        if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+//            $refererUri = $request->server->get('HTTP_REFERER');
+//
+//            return new RedirectResponse($refererUri && $refererUri != $request->getUri() ? $refererUri : $this->container->get('router')->generate('sonata_admin_dashboard'));
+//        }
+//
+//        return $this->container->get('templating')->renderResponse('', array(
+//            'last_username' => $lastUsername,
+//            'error' => $error,
+//            'csrf_token' => $csrfToken
+//        ));
 //    }
-
-    public function loginAction()
-    {
-        $user = $this->container->get('security.context')->getToken()->getUser();
-
-        if ($user instanceof UserInterface) {
-            $this->container->get('session')->getFlashBag()->set('sonata_user_error', 'sonata_user_already_authenticated');
-            $url = $this->container->get('router')->generate('sonata_admin_dashboard');
-
-            return new RedirectResponse($url);
-        }
-
-        $request = $this->container->get('request');
-        /* @var $request \Symfony\Component\HttpFoundation\Request */
-        $session = $request->getSession();
-        /* @var $session \Symfony\Component\HttpFoundation\Session */
-
-        // get the error if any (works with forward and redirect -- see below)
-        if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $error = $request->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
-        } elseif (null !== $session && $session->has(SecurityContext::AUTHENTICATION_ERROR)) {
-            $error = $session->get(SecurityContext::AUTHENTICATION_ERROR);
-            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
-        } else {
-            $error = '';
-        }
-
-        if ($error) {
-            // TODO: this is a potential security risk (see http://trac.symfony-project.org/ticket/9523)
-            $error = $error->getMessage();
-        }
-        // last username entered by the user
-        $lastUsername = (null === $session) ? '' : $session->get(SecurityContext::LAST_USERNAME);
-
-        $csrfToken = $this->container->has('form.csrf_provider')
-            ? $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate')
-            : null;
-
-        if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
-            $refererUri = $request->server->get('HTTP_REFERER');
-
-            return new RedirectResponse($refererUri && $refererUri != $request->getUri() ? $refererUri : $this->container->get('router')->generate('sonata_admin_dashboard'));
-        }
-
-        return $this->container->get('templating')->renderResponse(':default/admin:login.html.twig', array(
-            'last_username' => $lastUsername,
-            'error' => $error,
-            'csrf_token' => $csrfToken
-        ));
-    }
 
     /**
      * Renders the login template with the given parameters. Overwrite this function in
@@ -94,18 +100,16 @@ class AdminSecurityController extends ContainerAware
      */
     protected function renderLogin(array $data)
     {
-        $template = sprintf('FOSUserBundle:Security:login.html.%s', $this->container->getParameter('fos_user.template.engine'));
-
-        return $this->container->get('templating')->renderResponse($template, $data);
+        return $this->render(':default/admin:login.html.twig', $data);
     }
 
-    public function checkAction()
-    {
-        throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
-    }
-
-    public function logoutAction()
-    {
-        throw new \RuntimeException('You must activate the logout in your security firewall configuration.');
-    }
+//    public function checkAction()
+//    {
+//        throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
+//    }
+//
+//    public function logoutAction()
+//    {
+//        throw new \RuntimeException('You must activate the logout in your security firewall configuration.');
+//    }
 }

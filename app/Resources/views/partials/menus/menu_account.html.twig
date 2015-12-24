@@ -24,10 +24,8 @@
     <div class="loginAndSearch clearfix">
         <div class="before_login">
             <ul class="topLinks">
-                {#<li><a href="{{ path('fos_user_security_login') }}">Sign in</a></li>#}
-                {#<li><a href="{{ path('fos_user_registration_register') }}">Join</a></li>#}
-                <li><a href="{{ path('cls_home_homepage') }}">Sign in</a></li>
-                <li><a href="{{ path('cls_home_homepage') }}">Join</a></li>
+                <li><a href="{{ path('fos_user_registration_register') }}">Sign in</a></li>
+                <li><a href="{{ path('fos_user_security_login') }}">Join</a></li>
             </ul>
             <form class="navbar-form navbar-left" role="search">
                 <a href="#m" id="active_search" class="btn btn-warning">

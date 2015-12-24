@@ -7,7 +7,7 @@ security:
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         fos_userbundle:
-            id: fos_user.user_provider.username
+            id: fos_user.user_provider.username_email
         in_memory:
             memory: ~
 
@@ -45,7 +45,7 @@ security:
                 provider:       fos_userbundle
                 login_path:     cls_user_admin_security_login
                 use_forward:    false
-#                check_path:     cls_user_admin_security_check
+                check_path:     cls_user_admin_security_check
                 failure_path:   null
                 always_use_default_target_path: false
                 default_target_path: cls_home_homepage
@@ -63,7 +63,7 @@ security:
                 provider:       fos_userbundle
                 login_path:     fos_user_security_login
                 use_forward:    false
-#                check_path:     fos_user_security_check
+                check_path:     fos_user_security_check
                 failure_path:   null
                 remember_me: true
                 always_use_default_target_path: false
