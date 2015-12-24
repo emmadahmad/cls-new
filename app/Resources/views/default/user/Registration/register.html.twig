@@ -1,0 +1,46 @@
+{% extends '::base.html.twig' %}
+{% trans_default_domain 'login' %}
+
+{% block main_title %}
+    User Registration
+{% endblock main_title %}
+
+{% block page_title %} User Registration {% endblock page_title %}
+
+{#{% block form_error_messages %}#}
+    {#{% if error %}#}
+        {#<div class="alert alert-danger alert-dismissible" role="alert">#}
+            {#<button type="button" class="close" data-dismiss="alert" aria-label="Close">#}
+                {#<span aria-hidden="true">&times;</span>#}
+            {#</button>#}
+            {#{{ error.messageKey|trans(error.messageData, 'security') }}#}
+        {#</div>#}
+    {#{% endif %}#}
+{#{% endblock form_error_messages %}#}
+
+{% block main_content_1col_form %}
+    <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register mainForm">
+        {{ form_widget(form) }}
+        <div class="form-group text-center">
+            <input class="btn btn-savePass" type="submit" value="{{ 'button.register'|trans }}" />
+        </div>
+    </form>
+{% endblock main_content_1col_form %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
