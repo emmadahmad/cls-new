@@ -1,0 +1,13 @@
+page:
+    title: Login
+heading:
+    login: Login
+form:
+    username: Username or Email
+    password: Password
+    remember.me: Remember Me
+placeholder:
+    username: Enter your username or email address
+    password: Enter your password
+button:
+    login: Login

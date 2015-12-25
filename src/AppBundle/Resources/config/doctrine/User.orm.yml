@@ -66,9 +66,13 @@ AppBundle\Entity\User:
             targetEntity: AppBundle\Entity\Comment
             mappedBy: user
             cascade: ["persist", "remove"]
-        transactions:
+        userTransactions:
             targetEntity: AppBundle\Entity\Transaction
             mappedBy: user
+            cascade: ["persist", "remove"]
+        adminTransactions:
+            targetEntity: AppBundle\Entity\Transaction
+            mappedBy: admin
             cascade: ["persist", "remove"]
         courses:
             targetEntity: AppBundle\Entity\Course

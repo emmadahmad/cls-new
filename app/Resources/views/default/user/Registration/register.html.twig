@@ -1,11 +1,13 @@
 {% extends '::base.html.twig' %}
-{% trans_default_domain 'login' %}
+{% trans_default_domain 'registration' %}
 
-{% block main_title %}
+{% block fancy_title %}
     User Registration
-{% endblock main_title %}
+{% endblock fancy_title %}
 
 {% block page_title %} User Registration {% endblock page_title %}
+
+{#{% form_theme form ':form:user_form_fields.html.twig' %}#}
 
 {#{% block form_error_messages %}#}
     {#{% if error %}#}
@@ -19,6 +21,7 @@
 {#{% endblock form_error_messages %}#}
 
 {% block main_content_1col_form %}
+    {{ dump(form(form)) }}
     <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register mainForm">
         {{ form_widget(form) }}
         <div class="form-group text-center">

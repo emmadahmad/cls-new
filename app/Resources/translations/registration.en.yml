@@ -1,0 +1,26 @@
+page:
+    title:
+        register: User Registration
+        email: User Activation
+        confirmed: User Confirmation
+heading:
+    register: Register
+form:
+    fullname: Fullname
+    username: Username
+    email: Email Address
+    type: Type
+    password: Password
+    password_confirmation: Repeat Password
+placeholder:
+    fullname: Enter your Full Name
+    username: Enter your username
+    email: Enter your email address
+    password: Enter your password
+    repeat.password: Repeat your password
+button:
+    register: Register
+error:
+    mismatch: The entered passwords do not match
+flash:
+    created: User Created Successfully

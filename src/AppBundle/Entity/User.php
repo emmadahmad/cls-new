@@ -8,10 +8,17 @@ use Doctrine\ORM\Mapping as ORM;
 class User extends BaseUser
 {
     /**
-     * @var integer
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
 
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
     /**
      * @var string
      */
@@ -35,12 +42,12 @@ class User extends BaseUser
     /**
      * @var float
      */
-    private $credits;
+    private $credits = 0;
 
     /**
      * @var boolean
      */
-    private $emailVerified;
+    private $emailVerified = 0;
 
     /**
      * @var \DateTime
@@ -65,7 +72,12 @@ class User extends BaseUser
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $transactions;
+    private $userTransactions;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $adminTransactions;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -82,28 +94,6 @@ class User extends BaseUser
      */
     private $subscriptions;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        $this->comments = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->transactions = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->courses = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->courseLiker = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->subscriptions = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set fullName
@@ -346,36 +336,69 @@ class User extends BaseUser
     }
 
     /**
-     * Add transactions
+     * Add userTransactions
      *
-     * @param \AppBundle\Entity\Transaction $transactions
+     * @param \AppBundle\Entity\Transaction $userTransactions
      * @return User
      */
-    public function addTransaction(\AppBundle\Entity\Transaction $transactions)
+    public function addUserTransaction(\AppBundle\Entity\Transaction $userTransactions)
     {
-        $this->transactions[] = $transactions;
+        $this->userTransactions[] = $userTransactions;
 
         return $this;
     }
 
     /**
-     * Remove transactions
+     * Remove userTransactions
      *
-     * @param \AppBundle\Entity\Transaction $transactions
+     * @param \AppBundle\Entity\Transaction $userTransactions
      */
-    public function removeTransaction(\AppBundle\Entity\Transaction $transactions)
+    public function removeUserTransaction(\AppBundle\Entity\Transaction $userTransactions)
     {
-        $this->transactions->removeElement($transactions);
+        $this->userTransactions->removeElement($userTransactions);
     }
 
     /**
-     * Get transactions
+     * Get userTransactions
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getTransactions()
+    public function getUserTransactions()
     {
-        return $this->transactions;
+        return $this->userTransactions;
+    }
+
+    /**
+     * Add adminTransactions
+     *
+     * @param \AppBundle\Entity\Transaction $adminTransactions
+     * @return User
+     */
+    public function addAdminTransaction(\AppBundle\Entity\Transaction $adminTransactions)
+    {
+        $this->adminTransactions[] = $adminTransactions;
+
+        return $this;
+    }
+
+    /**
+     * Remove adminTransactions
+     *
+     * @param \AppBundle\Entity\Transaction $adminTransactions
+     */
+    public function removeAdminTransaction(\AppBundle\Entity\Transaction $adminTransactions)
+    {
+        $this->adminTransactions->removeElement($adminTransactions);
+    }
+
+    /**
+     * Get adminTransactions
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAdminTransactions()
+    {
+        return $this->adminTransactions;
     }
 
     /**

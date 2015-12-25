@@ -22,21 +22,6 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-#        main:
-#            pattern: ^/
-#            form_login:
-#                provider: fos_userbundle
-#                csrf_provider: form.csrf_provider
-#                check_path: /login_check
-#                login_path: /login
-#                use_forward: false
-#                always_use_default_target_path: false
-#                default_target_path: /
-#                target_path_parameter: _target_path
-#            logout:
-#                path:   /logout
-#                target: /
-#            anonymous:    true
         admin:
             switch_user:        true
             pattern:            ^/admin(.*)
@@ -81,9 +66,6 @@ security:
                 path: /login
                 domain: ~
             switch_user: true
-
-
-
 
     access_control:
         - { path: ^/admin/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

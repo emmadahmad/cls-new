@@ -1,13 +1,10 @@
-# Learn more about services, parameters and containers at
-# http://symfony.com/doc/current/book/service_container.html
+imports:
+    - { resource: @AppBundle/Resources/config/services.yml }
+
 parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
-
     # Twig Render Status Extension
     app.twig.renderData_extension:
         class: AppBundle\Twig\RenderDataExtension
@@ -24,22 +21,3 @@ services:
         arguments: [@service_container]
         tags:
             - { name: twig.extension }
-
-
-    #FOS USER FORM TYPES
-
-    cls_users.change_password.form.type:
-        class: AppBundle\Form\Type\ChangePasswordFormType
-        arguments: ['@service_container',%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: cls_change_password }
-    cls_users.registration.form.type:
-        class: AppBundle\Form\Type\RegistrationFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: cls_user_registration }
-    cls_users.profile.form.type:
-        class: AppBundle\Form\Type\ProfileFormType
-        arguments: [%fos_user.model.user.class%]
-        tags:
-            - { name: form.type, alias: cls_user_profile }

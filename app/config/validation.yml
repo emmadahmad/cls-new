@@ -1,0 +1,11 @@
+AppBundle\Entity\User:
+    properties:
+        plainPassword:
+            - Length:
+                min: 3
+                minMessage: "Your password must have at least {{ limit }} characters."
+                max: 100
+                maxMessage: "Your password is too long."
+            - NotBlank:
+                message: "Please enter a password"
+                groups: [Registration]

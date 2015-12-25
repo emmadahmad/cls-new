@@ -1,0 +1,11 @@
+{% block form_errors %}
+    {% spaceless %}
+        {% if errors|length > 0 %}
+            <p class="bg-danger">
+                {% for error in errors %}
+                    {{ error.message }}<br>
+                {% endfor %}
+            </p>
+        {% endif %}
+    {% endspaceless %}
+{% endblock form_errors %}
