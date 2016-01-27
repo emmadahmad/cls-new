@@ -21,7 +21,7 @@
 {#{% endblock form_error_messages %}#}
 
 {% block main_content_1col_form %}
-    {{ dump(form(form)) }}
+    {{ dump(form) }}
     <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register mainForm">
         {{ form_widget(form) }}
         <div class="form-group text-center">

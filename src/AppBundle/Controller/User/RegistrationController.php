@@ -62,9 +62,6 @@ class RegistrationController extends BaseController
         $form = $formFactory->createForm();
         $form->setData($user);
 
-//        var_dump($form->getConfig());
-//        die();
-
         $form->handleRequest($request);
 
         if ($form->isValid())
