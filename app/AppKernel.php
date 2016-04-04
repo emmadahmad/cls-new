@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
+            new Avanzu\AdminThemeBundle\AvanzuAdminThemeBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
