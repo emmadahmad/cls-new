@@ -13,7 +13,7 @@ fos_user:
 #                sender_name: CLS
         form:
             type: cls_user_registration
-#            validation_groups:  [Registration]
+            validation_groups:  [Registration]
 #    profile:
 #        form:
 #            type: cls_user_profile

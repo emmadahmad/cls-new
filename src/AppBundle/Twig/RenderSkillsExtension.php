@@ -93,7 +93,7 @@ class RenderSkillsExtension extends \Twig_Extension
 
         if($dataType == 'tag')
         {
-            $route = 'cls_home_homepage_skills';
+            $route = 'cls_homepage_skills';
             $route_params['tag_id'] = $data;
             $route_params['skill_id'] = $skillId;
 
@@ -102,25 +102,25 @@ class RenderSkillsExtension extends \Twig_Extension
         {
             if($data == 'all')
             {
-                $route = 'cls_home_homepage_skills';
+                $route = 'cls_homepage_skills';
                 $route_params['category_id'] = $data;
                 $route_params['skill_id'] = $skillId;
             }
             else
             {
-                $route = 'cls_home_homepage_skills';
+                $route = 'cls_homepage_skills';
                 $route_params['category_id'] = $data;
                 $route_params['skill_id'] = $skillId;
             }
         }
         else if($dataType == 'subscriptions')
         {
-            $route = 'cls_home_homepage_skills';
+            $route = 'cls_homepage_skills';
             $route_params['skill_id'] = $skillId;
         }
         else if($dataType == 'myCourses')
         {
-            $route = 'cls_home_homepage_skills';
+            $route = 'cls_homepage_skills';
             $route_params['skill_id'] = $skillId;
         }
         $uri = $this->container->get('router')->generate($route, $route_params);

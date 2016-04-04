@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ 'page.title.confirmed'|trans }} {% endblock title %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block main_content_1col_form %}
+    <div class="alert alert-success text-center" role="alert">
+        {{ 'registration.confirmed'|trans({'%username%': user.username}) }}<br>
+        <a href="{{ path('fos_user_profile_show') }}">Go to My profile</a>
+    </div>
+{% endblock main_content_1col_form %}

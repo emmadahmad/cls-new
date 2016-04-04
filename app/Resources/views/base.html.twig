@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 {% set lang = app.request.locale %}
 {% if lang == 'cn' %}{% set lang = 'zh-CN' %}{% endif %}
+{% set _title = '' %}
+{% set page_title = 'Welcome!' %}
+{% if block('page_title') is not empty %}{% set page_title = block('page_title') %}{% endif %}
 {% if block('main_title') is not empty %}{% set _title = block('main_title') %}{% set _title_type = 'main_title' %}{% endif %}
 {% if block('fancy_title') is not empty %}{% set _title = block('fancy_title') %}{% set _title_type = 'fancy_title' %}{% endif %}
 <html lang="{{ lang }}">
@@ -11,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, Zoom= false">
     {% endblock %}
 
-    <title>CLS | {% if block('page_title') is not empty %}{{ block('page_title') }}{% endif %}</title>
+    <title>{{ page_title }} | Cloud Learning System</title>
 
     {# Include CSS #}
     {{ include(':partials/assets:assets_css.html.twig') }}
@@ -31,7 +34,8 @@
 
         {% block breadcrumbs %} {% endblock breadcrumbs %}
 
-        {% if block('main_content_1col') is not empty %}
+        {% set _block = block('main_content_1col') %}
+        {% if _block is not empty %}
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="content clearfix {{ app.request.get('_route') }}">
@@ -39,14 +43,15 @@
                             {{ include(':partials/elements:title.html.twig', { '_content': _title, '_title_type' : _title_type }) }}
                         {% endif %}
 
-                        {% block main_content_1col %}{% endblock main_content_1col %}
+                        {{ _block|raw }}
 
                     </div><!-- class="content" END -->
                 </div><!--class="col-lg-12 col-md-12 col-sm-12" END -->
             </div><!--class="row" END -->
         {% endif %}
 
-        {% if block('main_content_1col_form') is not empty %}
+        {% set _block = block('main_content_1col_form') %}
+        {% if _block is not empty %}
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="content clearfix {{ app.request.get('_route') }}">
@@ -61,13 +66,15 @@
                             {{ include(':partials/elements:title.html.twig', { '_content': _title, '_title_type' : _title_type }) }}
                         {% endif %}
 
-                        {% block main_content_1col_form %}{% endblock main_content_1col_form %}
+                        {{ _block|raw }}
+
                     </div><!-- class="content" END -->
                 </div><!--class="col-lg-12 col-md-12 col-sm-12" END -->
             </div><!--class="row" END -->
         {% endif %}
 
-        {% if block('main_content_2cols_left') is not empty %}
+        {% set _block = block('main_content_2cols_left') %}
+        {% if _block is not empty %}
             <div class="clearfix">
                 <div class="content {{ app.request.get('_route') }}">
                     {% if _title is not empty %}
@@ -79,14 +86,15 @@
                         </div>
 
                         <div class="col-lg-9 col-md-9 col-sm-12">
-                            {% block main_content_2cols_left %}{% endblock main_content_2cols_left %}
+                            {{ _block|raw }}
                         </div><!--class="col-lg-9 col-md-9 col-sm-12" END -->
                     </div>
                 </div><!-- class="content" END -->
             </div><!--class="row" END -->
         {% endif %}
 
-        {% if block('main_content_2cols_left_medium') is not empty %}
+        {% set _block = block('main_content_2cols_left_medium') %}
+        {% if _block is not empty %}
             <div class="clearfix">
                 <div class="content {{ app.request.get('_route') }}">
                     {% if _title is not empty %}
@@ -98,14 +106,15 @@
                         </div>
 
                         <div class="col-lg-9 col-md-9 col-sm-12">
-                            {% block main_content_2cols_left_medium %}{% endblock main_content_2cols_left_medium %}
+                            {{ _block|raw }}
                         </div><!--class="col-lg-9 col-md-9 col-sm-12" END -->
                     </div>
                 </div><!-- class="content" END -->
             </div><!--class="row" END -->
         {% endif %}
 
-        {% if block('main_content_2cols_right') is not empty %}
+        {% set _block = block('main_content_2cols_right') %}
+        {% if _block is not empty %}
             <div class="clearfix">
                 <div class="content {{ app.request.get('_route') }}">
                     {% if _title is not empty %}
@@ -117,14 +126,15 @@
                         </div><!--class="col-lg-9 col-md-9 col-sm-12" END -->
 
                         <div class="col-lg-3 col-md-3 col-sm-12">
-                            {% block main_content_2cols_right %}{% endblock main_content_2cols_right %}
+                            {{ _block|raw }}
                         </div>
                     </div>
                 </div><!-- class="content" END -->
             </div><!--class="row" END -->
         {% endif %}
 
-        {% if block('main_content_2cols_right_medium') is not empty %}
+        {% set _block = block('main_content_2cols_right_medium') %}
+        {% if _block is not empty %}
             <div class="clearfix">
                 <div class="content {{ app.request.get('_route') }}">
                     {% if _title is not empty %}
@@ -136,7 +146,7 @@
                         </div><!--class="col-lg-9 col-md-9 col-sm-12" END -->
 
                         <div class="col-lg-5 col-md-5 col-sm-12">
-                            {% block main_content_2cols_right_medium %}{% endblock main_content_2cols_right_medium %}
+                            {{ _block|raw }}
                         </div>
                     </div>
                 </div><!-- class="content" END -->

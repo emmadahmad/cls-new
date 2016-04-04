@@ -94,13 +94,13 @@ class Builder extends ContainerAware
 
         if(true === $this->container->get('security.authorization_checker')->isGranted('ROLE_AUTHOR'))
         {
-            $menu->addChild('My Courses', array('route' => 'beusoft_my_courses_homepage'));
-            $menu->addChild('Create New Course', array('route' => 'beusoft_courses_new'));
+            $menu->addChild('My Courses', array('route' => 'cls_my_courses'));
+            $menu->addChild('Create New Course', array('route' => 'cls_new_course'));
         }
 
         $menu->addChild('My Profile', array('route' => 'fos_user_profile_show'));
         $menu->addChild('Change Password', array('route' => 'fos_user_change_password'));
-        $menu->addChild('Transaction History', array('route' => 'beusoft_payments_history'));
+        $menu->addChild('Transaction History', array('route' => 'cls_home'));
         $menu->addChild('Logout', array('route' => 'fos_user_security_logout'));
 
         return $menu;
@@ -123,9 +123,9 @@ class Builder extends ContainerAware
 
         if(true === $this->container->get('security.authorization_checker')->isGranted('ROLE_AUTHOR'))
         {
-            $menu->addChild('My Courses', array('route' => 'beusoft_my_courses_homepage'));
-            $menu->addChild('Create New Course', array('route' => 'beusoft_courses_new'));
-            if($request->get('_route') == 'beusoft_my_courses_homepage_skills')
+            $menu->addChild('My Courses', array('route' => 'cls_my_courses'));
+            $menu->addChild('Create New Course', array('route' => 'cls_new_course'));
+            if($request->get('_route') == 'cls_my_courses_skills')
             {
                 $menu['My Courses']->setCurrent(true);
             }
@@ -133,7 +133,7 @@ class Builder extends ContainerAware
 
         $menu->addChild('My Profile', array('route' => 'fos_user_profile_show'));
         $menu->addChild('Change Password', array('route' => 'fos_user_change_password'));
-        $menu->addChild('Transaction History', array('route' => 'beusoft_payments_history'));
+        $menu->addChild('Transaction History', array('route' => 'cls_home'));
 
 
 

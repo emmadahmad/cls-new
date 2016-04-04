@@ -14,6 +14,10 @@ cls_home:
     resource: "@AppBundle/Resources/config/routing/home_routing.yml"
     prefix:   /
 
+cls_course:
+    resource: "@AppBundle/Resources/config/routing/course_routing.yml"
+    prefix:   /
+
 cls_category:
     resource: "@AppBundle/Resources/config/routing/category_routing.yml"
     prefix:   /

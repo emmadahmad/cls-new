@@ -4,7 +4,7 @@
 
     <div class="loginAndSearch clearfix">
         <div class="after_login">
-            <span style="float: left; margin-top: 26px; font-size: 11px; font-weight: bold; margin-right: 10px; color: #ec9f0f">Welcome {{ not app.user.fullName is empty ? app.user.fullName : app.user.username }}</span>
+            <span style="float: left; margin-top: 26px; font-size: 11px; font-weight: bold; margin-right: 10px; color: #ec9f0f">Welcome {{ not app.user.firstName is empty ? app.user.firstName : app.user.username }}</span>
             <form class="navbar-form searchMargin" role="search">
                 <a href="#m" id="active_search" class="btnSearch">
                     <img src="{{ asset('bundles/app/images/content/search_icon_orange.png') }}" alt="Search Icon">

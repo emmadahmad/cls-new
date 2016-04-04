@@ -2,10 +2,10 @@
     {% set _skillId = course.skillId %}
     <div class="media showCourse">
         <div class="media-left">
-            <a href="{{ path("beusoft_courses_details",{id:course.id}) }}">
+            <a href="{{ path("cls_course_detail",{id:course.id}) }}">
                 {% if course.coverMedia is empty %}
                     <img class="media-object img-responsive"
-                     src="{{ asset('bundles/beusoftthemes/images/content/thumb_01_placeholder.png')| imagine_filter('course_thumb') }}" alt="Thumb">
+                     src="{{ asset('bundles/app/images/content/thumb_01_placeholder.png')|imagine_filter('course_thumb') }}" alt="Thumb">
                 {% else %}
                     <img class="media-object img-responsive"
                          src="{{ asset(course.filePath|replace({'\\': '/'}))| imagine_filter('course_thumb') }}" alt="Thumb">
@@ -14,21 +14,21 @@
         </div>
         <div class="media-body">
             <h4 class="media-heading page-header">
-                <a href="{{ path("beusoft_courses_details",{id:course.id}) }}">{{ course.title }}</a>
+                <a href="{{ path("cls_course_detail",{id:course.id}) }}">{{ course.title }}</a>
                 <small>with {{ not course.fullName is empty ? course.fullName : course.user }}</small>
             </h4>
             <p>{{ course.description }}</p>
             <ul class="courseLinks">
                 <li>
-                    <img src="{{ asset('bundles/beusoftthemes/images/content/clock_icon_grey.png') }}"
+                    <img src="{{ asset('bundles/app/images/content/clock_icon_grey.png') }}"
                                 alt="Clock Icon">2.5 hours
                 </li>
                 <li>
-                    <img src="{{ asset('bundles/beusoftthemes/images/content/' ~ _skillId|skillsIcon ~ '.png') }}"
+                    <img src="{{ asset('bundles/app/images/content/' ~ _skillId|skillsIcon ~ '.png') }}"
                                 alt="Beginners Icon">{{ _skillId|skillsName }}
                 </li>
                 <li>
-                    <img src="{{ asset('bundles/beusoftthemes/images/content/like_icon_grey.png') }}"
+                    <img src="{{ asset('bundles/app/images/content/like_icon_grey.png') }}"
                                 alt="Like Icon">{{ not course.totalLikes is empty ? course.totalLikes : '0' }}
                 </li>
                 <li class="postDate">{{ course.createdAt|localizeddate('medium', 'none') }}</li>

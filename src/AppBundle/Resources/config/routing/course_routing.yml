@@ -1,0 +1,31 @@
+cls_my_courses:
+    path:     /account/courses
+    defaults: { _controller: AppBundle:Course:myCourses }
+
+cls_my_courses_skills:
+    path:     /account/courses/skill/{skill_id}
+    defaults: { _controller: AppBundle:Course:myCourses }
+
+cls_new_course:
+    path:     /course/new
+    defaults: { _controller: AppBundle:Course:new }
+
+cls_create_new_course:
+    path:     /courses/create
+    defaults: { _controller: AppBundle:Course:create }
+
+cls_like_course:
+    path:     /courses/likeCourse
+    defaults: { _controller: AppBundle:Course:likeCourse }
+
+cls_edit_course:
+    path:     /course/edit/{id}
+    defaults: { _controller: AppBundle:Course:edit}
+
+cls_course_detail:
+    path:     /course/{id}
+    defaults: { _controller: AppBundle:Course:show }
+
+curl_example:
+    path:     /curl
+    defaults: { _controller: AppBundle:Course:curl }

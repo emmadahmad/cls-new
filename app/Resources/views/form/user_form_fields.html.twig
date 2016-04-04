@@ -1,3 +1,15 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block widget_attributes %}
+    {% if attr.class is defined %}
+        {% set class = attr.class ~ ' form-control' %}
+    {% else %}
+        {% set class = 'form-control' %}
+    {% endif %}
+    {% set attr = attr|merge({'class' : class}) %}
+    {{ parent () }}
+{% endblock widget_attributes %}
+
 {% block form_errors %}
     {% spaceless %}
         {% if errors|length > 0 %}
@@ -9,3 +21,32 @@
         {% endif %}
     {% endspaceless %}
 {% endblock form_errors %}
+
+{% block form_row %}
+    {% set types = form.vars.block_prefixes %}
+    {% if 'checkbox' in types or 'radio' in types %}
+        <div class="form-group {{ errors|length > 0 ? 'has-error has-feedback'  : '' }}">
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+        </div>
+    {% else %}
+        <div class="form-group {{ errors|length > 0 ? 'has-error has-feedback'  : '' }}">
+            {{ form_label(form) }}
+            {{ form_widget(form) }}
+            {{ form_errors(form) }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block form_label %}
+
+    {% if help is defined %}
+        &nbsp; <a href="#" data-toggle="tooltip" data-original-title="{{ help }}"><i class="fa fa-question-circle"></i></a>
+    {% endif %}
+
+    {{ parent() }}
+    {% if required %}
+        <span class="required" title="Dies ist ein Pflichtfeld">*</span>
+    {% endif %}
+
+{% endblock form_label %}

@@ -49,4 +49,45 @@ class CourseRepository extends EntityRepository
         $result = $queryBuilder->getQuery()->getArrayResult();
         return $result;
     }
+
+    public function getByUser($user_id, $skill_id, $sorting)
+    {
+        $queryBuilder = $this->_em->createQueryBuilder()
+            ->select('b.id as coverMedia, b.name as fileName, b.path as filePath, c.id, c.totalLikes, c.skillId, c.title, c.subtitle, c.prerequisites, c.description, c.language, c.price, c.status, c.isFree, c.dateCreated, u.fullName, u.username as user')
+            ->where('c.user = :userId')
+            ->setParameter('userId',$user_id)
+            ->from('AppBundle:Course', 'c')
+            ->leftJoin('AppBundle:Media', 'b', 'WITH', 'c.coverMedia = b.id')
+            ->join('AppBundle:User', 'u', 'WITH', 'c.user = u.id');
+
+        if ($skill_id != 4)
+        {
+            $queryBuilder
+                ->andWhere('c.skillId = :skillId')
+                ->setParameter('skillId', $skill_id);
+        }
+        if($sorting == 'date_asc')
+        {
+            $queryBuilder
+                ->orderBy('c.dateCreated', 'ASC');
+        }
+        elseif($sorting == 'date_dsc')
+        {
+            $queryBuilder
+                ->orderBy('c.dateCreated', 'DESC');
+        }
+        elseif($sorting == 'name_asc')
+        {
+            $queryBuilder
+                ->orderBy('c.title', 'ASC');
+        }
+        elseif($sorting == 'name_dsc')
+        {
+            $queryBuilder
+                ->orderBy('c.title', 'DESC');
+        }
+
+        $result = $queryBuilder->getQuery()->getArrayResult();
+        return $result;
+    }
 }

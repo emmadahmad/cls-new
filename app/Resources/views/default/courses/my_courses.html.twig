@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %} My Courses {% endblock page_title %}
+
+{% block fancy_title %} My Courses {% endblock %}
+
+{% block main_content_1col %}
+    <div class="categoryBtns clearfix">
+        {#{{ include('partials/elements/switcher_skills.html.twig', { 'data': 0, 'skillId' : skill_id, 'dataType' : 'myCourses' }) }}#}
+        {{ include('partials/elements/sorter.html.twig', { 'sorting' : sorting }) }}
+    </div><!-- class="categoryBtns" END -->
+    <!-- START COURSE LIST -->
+    {{ include('partials/elements/course_listing.html.twig', {'courses': courses}) }}
+    <!-- END COURSE LIST -->
+    {{ include('partials/elements/pagination.html.twig', { 'data' : courses }) }}
+{% endblock %}

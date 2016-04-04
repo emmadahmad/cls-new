@@ -29,7 +29,7 @@ class SecurityController extends BaseController
         $user = $this->container->get('security.context')->getToken()->getUser();
         if ($user instanceof UserInterface) {
             $this->container->get('session')->getFlashBag()->set('sonata_user_error', 'sonata_user_already_authenticated');
-            $url = $this->container->get('router')->generate();
+            $url = $this->container->get('router')->generate('cls_home_homepage');
 
             return new RedirectResponse($url);
         }
@@ -47,6 +47,6 @@ class SecurityController extends BaseController
      */
     protected function renderLogin(array $data)
     {
-        return $this->render(':default/user/Security:login.html.twig', $data);
+        return $this->render('default/user/Security/login.html.twig', $data);
     }
 }

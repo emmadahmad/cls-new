@@ -62,9 +62,6 @@ class RegistrationController extends BaseController
         $form = $formFactory->createForm();
         $form->setData($user);
 
-//        var_dump($form->getConfig());
-//        die();
-
         $form->handleRequest($request);
 
         if ($form->isValid())
@@ -87,7 +84,7 @@ class RegistrationController extends BaseController
             return $response;
         }
 
-        return $this->render(':default/user/Registration:register.html.twig', array(
+        return $this->render('default/user/Registration/register.html.twig', array(
             'form' => $form->createView(),
         ));
     }
@@ -156,7 +153,7 @@ class RegistrationController extends BaseController
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
-        return $this->render('FOSUserBundle:Registration:confirmed.html.twig', array(
+        return $this->render('default/user/Registration/confirmed.html.twig', array(
             'user' => $user,
         ));
     }
